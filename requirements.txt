@@ -1,6 +1,2 @@
 twitter
-os
 http
-re
-collections
-threading
