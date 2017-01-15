@@ -1,1 +1,1 @@
-web: python twitterService.py
+web: python twitterService.py $PORT

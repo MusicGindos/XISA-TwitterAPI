@@ -20,7 +20,7 @@ class S(BaseHTTPRequestHandler):
         self.wfile.write(json.dumps(data).encode("utf-8"))
 
 
-def run(server_class=HTTPServer,handler_class=S, port=5000):
+def run(server_class=HTTPServer,handler_class=S, port=8080):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     print('Starting httpd... on port ' + str(port))
