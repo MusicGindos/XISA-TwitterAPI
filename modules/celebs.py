@@ -2,13 +2,10 @@ from twitter import *
 import re
 from collections import Counter
 from threading import Thread
+from py import twitterConfig
 
-consumer_key = "1b7veNvOFSLQobADTLDCkqNpD"
-consumer_secret = "FbbKPoJUOOb7mBd1mHdOatksrNlcH3tJQbkENDmdjm1eayfM8U"
-access_key = "798072331864309765-fcTHr0dBJhIAjWpBaGBC9KqR86nkXN5"
-access_secret = "3FtgkmtDLOVf9qdXZi0Crr8G94GTZQKoZOAgL8I9VHdvh"
 twitter = Twitter(
-    auth=OAuth(access_key, access_secret, consumer_key, consumer_secret))
+    auth=OAuth(twitterConfig.celebs['access_key'], twitterConfig.celebs['access_secret'], twitterConfig.celebs['consumer_key'], twitterConfig.celebs['consumer_secret']))
 
 numberOfThreadFinished = 0
 

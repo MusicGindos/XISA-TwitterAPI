@@ -2,12 +2,21 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 import os
 from modules import celebs
+from modules import file_reader
+
 
 class S(BaseHTTPRequestHandler):
     def do_GET(self):
         print('got GET request: ' + self.path)
         data = {}
         if self.path == "/getCelebs":
+            # time_diffrence = file_reader.calculate_differences_between_datetime(file_reader.read_from_times_json("celebs_time"))
+            # if time_diffrence > 70:
+            #     file_reader.update_time_by_key("celebs_time")
+            #     data = celebs.celebs()
+            #     file_reader.write_to_data_json("celebs", data)
+            # else:
+            #     data = file_reader.read_from_data_json("celebs")
             data = celebs.celebs()
         # elif self.path.startswith("/celeb/"):
         #     name = self.path.split("/")[2]
