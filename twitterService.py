@@ -3,6 +3,7 @@ import json
 import os
 from modules import celebs
 from modules import celeb
+from modules import users
 from modules import file_reader
 
 
@@ -11,19 +12,25 @@ class S(BaseHTTPRequestHandler):
         print('got GET request: ' + self.path)
         data = {}
         if self.path == "/getCelebs":
-            # time_diffrence = file_reader.calculate_differences_between_datetime(file_reader.read_from_times_json("celebs_time"))
-            # if time_diffrence > 70:
-            #     file_reader.update_time_by_key("celebs_time")
-            #     data = celebs.celebs()
-            #     file_reader.write_to_data_json("celebs", data)
-            # else:
-            #     data = file_reader.read_from_data_json("celebs")
-            data = celebs.celebs()
+            time_difference = file_reader.calculate_differences_between_datetime(file_reader.read_from_times_json("celebs_time"))
+            if time_difference > 70:
+                file_reader.update_time_by_key("celebs_time")
+                data = celebs.celebs()
+                file_reader.write_to_data_json("celebs", data)
+            else:
+                data = file_reader.read_from_data_json("celebs")
         elif self.path.startswith("/celeb/"):
-            name = self.path.split("/")[2]
-            print(self.path.split("/")[2])
-            data = celeb.celeb_tweets(name)
-
+            if self.path.split("/")[2] is not None:
+                name = self.path.split("/")[2]
+                data = celeb.celeb_tweets(name)
+        elif self.path == "/getUsers":
+            time_difference = file_reader.calculate_differences_between_datetime(file_reader.read_from_times_json("users_time"))
+            if time_difference > 70:
+                file_reader.update_time_by_key("users_time")
+                data = users.get_users()
+                file_reader.write_to_data_json("users", data)
+            else:
+                data = file_reader.read_from_data_json("users")
         self.send_response(200)
         self.send_header('Access-Control-Allow-Origin', '*')
         self.send_header('Content-type', 'application/json')
