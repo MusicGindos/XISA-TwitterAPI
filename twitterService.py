@@ -36,6 +36,10 @@ class S(BaseHTTPRequestHandler):
             if self.path.split("/")[2] is not None:
                 name = self.path.split("/")[2]
                 data = user.get_user(name)
+        elif self.path == "/":
+            data = {'error' : 'wrong path'}
+        elif self.path == "/favicon.ico":
+            print("favicon.ico")
         self.send_response(200)
         self.send_header('Access-Control-Allow-Origin', '*')
         self.send_header('Content-type', 'application/json')
