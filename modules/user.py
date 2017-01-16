@@ -1,7 +1,7 @@
 from twitter import *
 from threading import Thread
 from py import twitterConfig
-
+from collections import Counter
 twitter = Twitter(
     auth=OAuth(twitterConfig.user['access_key'], twitterConfig.user['access_secret'], twitterConfig.user['consumer_key'], twitterConfig.user['consumer_secret']))
 
@@ -30,20 +30,32 @@ def init():
     images= []
 
 
-def get_tweets_from_user(user_name,page_number):
+def count_word(word1, string):
+    count = 0
+    sentence = string.lower()
+    sentence = sentence.split(' ')
+    for word_splited in sentence:
+        if word_splited == word1:
+            count += 1
+    return count
+
+
+def get_tweets_from_user(user_name, page_number):
     global user_details
     global result
     number = 0
     word_res = {}
     try:
         userTweets = twitter.statuses.user_timeline(screen_name=user_name,  count=200, page=page_number)
-
         if page_number == 1:
             user_details = {'name': userTweets[0]['user']['name'], 'screen_name': userTweets[0]['user']['screen_name'], 'total_bad_words': 0, 'followers_count':userTweets[0]['user']['followers_count'],'image' : userTweets[0]['user']["profile_image_url"].replace('_normal', '')}
             result["user_details"] = user_details
         for tweet in userTweets:
             for word in badWords:
-                count = tweet["text"].lower().count(word)
+                #count = tweet["text"].lower().count(word)
+                # words = tweet["text"].lower().split()
+                # count = Counter(words)
+                count = count_word(word, tweet["text"])
                 if count > 0:
                     user_details['total_bad_words'] += count
                     if words_with_texts:
@@ -89,6 +101,7 @@ def get_tweets_from_user(user_name,page_number):
         numberOfThreadFinished += 1
         return
     except IndexError:
+        print(page_number)
         numberOfThreadFinished += 1
         return
     except:
@@ -99,15 +112,16 @@ def get_user(screen_name):
     init()
     threads = [None] * 16
     for i in range(len(threads)):
-        threads[i] = Thread(target=get_tweets_from_user, args=(screen_name, i+1))
+        threads[i] = Thread(target=get_tweets_from_user, args=(screen_name, i))
         threads[i].start()
 
     while True:
         if numberOfThreadFinished == 16:
             print('done all')
-            words_with_texts.sort(key=lambda x: x['count'], reverse=True)
-            result["images"] = list(set(images)) #remove duplicates
-            result["words_with_texts"] = words_with_texts[:5]
+            if result:
+                words_with_texts.sort(key=lambda x: x['count'], reverse=True)
+                result["images"] = list(set(images)) #remove duplicates
+                result["words_with_texts"] = words_with_texts[:5]
             break
 
     return result
