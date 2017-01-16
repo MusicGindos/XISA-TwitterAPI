@@ -9,6 +9,12 @@ twitter = Twitter(
 bad_words = ["racist", "fascist", "ugly", "stupid", "liar", "corrupt", "fat", "misogynist", "chauvinist", "idiot"]
 numberOfThreadFinished = 0
 
+
+def init():
+    global numberOfThreadFinished
+    numberOfThreadFinished = 0
+
+
 def get_tweets(name, word, result, index):
     texts = {}
     phrase = '/"' + name + ' is a ' + word + '/"'
@@ -56,6 +62,5 @@ def celeb_tweets(name):
     res["wordsWithTweets"] = results[1:6]
     res["celeb_details"] = celeb
     res["mostUsedWord"] = results[0]["word"].upper()
-    global numberOfThreadFinished
-    numberOfThreadFinished = 0
+    init()
     return res
