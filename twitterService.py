@@ -38,7 +38,7 @@ class S(BaseHTTPRequestHandler):
                 data = user.get_user(name)
         elif self.path == "/favicon.ico":
             print("favicon.ico")
-        elif self.path == "/":
+        else:
             data = {'Error': 'Wrong path: ' + self.path, "API": "https://github.com/MusicGindos/XISA-TwitterAPI"}
         self.send_response(200)
         self.send_header('Access-Control-Allow-Origin', '*')
