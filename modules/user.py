@@ -1,7 +1,6 @@
 from twitter import *
 from threading import Thread
 from py import twitterConfig
-from collections import Counter
 twitter = Twitter(
     auth=OAuth(twitterConfig.user['access_key'], twitterConfig.user['access_secret'], twitterConfig.user['consumer_key'], twitterConfig.user['consumer_secret']))
 
@@ -52,9 +51,6 @@ def get_tweets_from_user(user_name, page_number):
             result["user_details"] = user_details
         for tweet in userTweets:
             for word in badWords:
-                #count = tweet["text"].lower().count(word)
-                # words = tweet["text"].lower().split()
-                # count = Counter(words)
                 count = count_word(word, tweet["text"])
                 if count > 0:
                     user_details['total_bad_words'] += count
@@ -93,7 +89,7 @@ def get_tweets_from_user(user_name, page_number):
                                         images.append(user[0]["user"]["profile_image_url"].replace('_normal', ''))
                                         numberOfImages += 1
                                     except:
-                                        print("user not found")
+                                        continue
                 word_res = {}
                 temp = {}
                 number = 0
