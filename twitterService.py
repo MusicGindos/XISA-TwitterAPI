@@ -4,6 +4,7 @@ import os
 from modules import celebs
 from modules import celeb
 from modules import users
+from modules import user
 from modules import file_reader
 
 
@@ -31,6 +32,10 @@ class S(BaseHTTPRequestHandler):
                 file_reader.write_to_data_json("users", data)
             else:
                 data = file_reader.read_from_data_json("users")
+        elif self.path.startswith("/user/"):
+            if self.path.split("/")[2] is not None:
+                name = self.path.split("/")[2]
+                data = user.get_user(name)
         self.send_response(200)
         self.send_header('Access-Control-Allow-Origin', '*')
         self.send_header('Content-type', 'application/json')

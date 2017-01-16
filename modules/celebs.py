@@ -55,6 +55,8 @@ def get_celebs(word, result, index):
     result[index] = tempUser
     global numberOfThreadFinished
     numberOfThreadFinished += 1
+    return
+
 
 def celebs():
     threads = [None] * 10
