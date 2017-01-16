@@ -2,6 +2,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 import os
 from modules import celebs
+from modules import celeb
 from modules import file_reader
 
 
@@ -18,10 +19,11 @@ class S(BaseHTTPRequestHandler):
             # else:
             #     data = file_reader.read_from_data_json("celebs")
             data = celebs.celebs()
-        # elif self.path.startswith("/celeb/"):
-        #     name = self.path.split("/")[2]
-        #     print(self.path.split("/")[2])
-        #     data = data1
+        elif self.path.startswith("/celeb/"):
+            name = self.path.split("/")[2]
+            print(self.path.split("/")[2])
+            data = celeb.celeb_tweets(name)
+
         self.send_response(200)
         self.send_header('Access-Control-Allow-Origin', '*')
         self.send_header('Content-type', 'application/json')
