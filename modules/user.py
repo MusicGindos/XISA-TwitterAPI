@@ -118,8 +118,5 @@ def get_user(screen_name):
                     words_with_texts.sort(key=lambda x: x['count'], reverse=True)
                     result["images"] = list(set(images)) #remove duplicates
                     result["words_with_texts"] = words_with_texts[:5]
-                else:
-                    global result
-                    result = {}
             break
     return result
