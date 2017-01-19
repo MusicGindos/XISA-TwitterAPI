@@ -9,7 +9,7 @@ badWords = ["ape","balls","gosh","fag","faggot","merciless","bullshit","clit", "
 result = {}
 words_with_texts = []
 numberOfThreadFinished = 0
-user_details = {'total_bad_words' : 0}
+user_details = {'total_bad_words': 0}
 numberOfImages = 0
 images = []
 
@@ -113,11 +113,13 @@ def get_user(screen_name):
 
     while True:
         if numberOfThreadFinished == 16:
-            print('done all')
             if result:
-                words_with_texts.sort(key=lambda x: x['count'], reverse=True)
-                result["images"] = list(set(images)) #remove duplicates
-                result["words_with_texts"] = words_with_texts[:5]
+                if result['user_details']['total_bad_words'] != 0 :
+                    words_with_texts.sort(key=lambda x: x['count'], reverse=True)
+                    result["images"] = list(set(images)) #remove duplicates
+                    result["words_with_texts"] = words_with_texts[:5]
+                else:
+                    global result
+                    result = {}
             break
-
     return result
