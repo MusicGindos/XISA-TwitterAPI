@@ -56,7 +56,7 @@ def merge_sort(users_array):
 def get_users():
     threads = [None] * 152
     results = []
-    bad_words = base.badWords
+    bad_words = base.bad_words
     for i in range(len(threads)):
             threads[i] = Thread(target=users, args=(bad_words[i], results, i))
             threads[i].start()
