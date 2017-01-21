@@ -38,7 +38,7 @@ def users(word, result, thread_number):
         numberOfThreadFinished += 1
         return
     except Exception as e:
-        print('Exception in getUsers at Thread ' + thread_number+ ' error message:' + str(e))
+        print('Exception in getUsers at Thread ' + str(thread_number) + ' error message:' + str(e))
         return
 
 
