@@ -24,9 +24,9 @@ class S(BaseHTTPRequestHandler):
                         if data:
                             json_reader.write_to_data_json("celebs", data, category)
                         else:
-                            data = json_reader.read_from_data_json("celebs")
+                            data = json_reader.read_from_data_json("celebs", category)
                     else:
-                        data = json_reader.read_from_data_json("celebs",category)
+                        data = json_reader.read_from_data_json("celebs", category)
                 else:
                     data = {'error': "wrong category"}
             else:
