@@ -1,23 +1,17 @@
-
 from twitter import *
 from threading import Thread
-
-from py import twitterConfig
-
+from config import twitterConfig
+from config import base
 twitter = Twitter(
     auth=OAuth(twitterConfig.users['access_key'], twitterConfig.users['access_secret'], twitterConfig.users['consumer_key'], twitterConfig.users['consumer_secret']))
-
-
-badWords = ["ape","balls","gosh","fag","faggot","merciless","bullshit","clit", "wierdo", "wino", "witch", "worm", "maniac", "racist", "fascist", "liar", "corrupt", "fat", "misogynist", "chauvinist", "idiot","asshole","booby","bum","butt","boner","cocksucker","cock sucker","busty","bastard","boorish","antankerous","cunning","cynical","indolent","miserly","pompous","procrastinator","sullen","surly","shiftless","bossy","boastful","belligerent","callous","cantankerous","careless","changeable","clinging","compulsive","conservative","cowardly","cruel","deceitful","detached","dishonest","dogmatic","homo","hippie","ignoramus","domineering","finicky","flirtatious","foolish","foolhardy","fussy","greedy","grumpy","gullible","harsh","jealous","jerk","lazy","machiavellian","materialistic","ego","egoist","manic","monkey","parsimonious","patronizing","pervert","ruthless","sarcastic","secretive","selfish","silly","sneaky","stingy","stubborn","stupid","superficial","tactless","timid","touchy","thoughtless","truculent","vague","vain","vengeful","vulgar","aloof","arrogant","impatient","impolite","impulsive","inconsiderate","inconsistent","indecisive","indiscreet","inflexible","interfering","intolerant","irresponsible","obsessive","obstinate","overcritical","overemotional","abominate","afflict","aggressive","darn","agony","endanger","oblique","obscene","offender","ugly","explode","exile","emphatic","cunt","ass","blow","shit","bitch","nigga","hell","whore","dick","piss","pussy","puta","tit","damn","cum","cock","retard","fucking","fuck","motherfucker","sadist"]
-
 numberOfThreadFinished = 0
 
 
 def users(word, result, thread_number):
     try:
         q1 = '/"is a ' + word + '/"'
-        tweetsWithWord = twitter.search.tweets(q=q1, count=100)['statuses']
-        for tweet in tweetsWithWord:
+        tweets = twitter.search.tweets(q=q1, count=100)['statuses']
+        for tweet in tweets:
             exist = False
             for user in result:
                 if not result:
@@ -62,13 +56,12 @@ def merge_sort(users_array):
 def get_users():
     threads = [None] * 152
     results = []
+    bad_words = base.badWords
     for i in range(len(threads)):
-            threads[i] = Thread(target=users, args=(badWords[i], results,i))
+            threads[i] = Thread(target=users, args=(bad_words[i], results, i))
             threads[i].start()
-
     while True:
         if numberOfThreadFinished == 152:
             break
-
     res = merge_sort(results)
     return res[:10]
