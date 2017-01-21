@@ -1,5 +1,4 @@
 from twitter import *
-import json
 from threading import Thread
 from py import twitterConfig
 
@@ -54,7 +53,6 @@ def celeb_tweets(name):
             celeb["image"] = user["profile_image_url"].replace('_normal', '')
             followers_count = user["followers_count"]
 
-
     threads = [None] * 10
     results = [None] * 10
     badWords = ["racist", "fascist", "ugly", "stupid", "liar", "corrupt", "fat", "misogynist", "chauvinist", "idiot"]
@@ -67,7 +65,7 @@ def celeb_tweets(name):
             results.sort(key=lambda x: x['bad_words_count'], reverse=True)
             break
     res = {}
-    res["wordsWithTweets"] = results[1:6]
+    res["words_with_tweets"] = results[1:6]
     res["celeb_details"] = celeb
     res["mostUsedWord"] = results[0]["word"].upper()
     init()

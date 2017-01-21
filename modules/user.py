@@ -128,6 +128,6 @@ def get_user(screen_name):
                 if result['user_details']['total_bad_words'] != 0 :
                     words_with_texts.sort(key=lambda x: x['count'], reverse=True)
                     result["images"] = images#list(set(images)) #remove duplicates
-                    result["words_with_texts"] = words_with_texts[:5]
+                    result["words_with_tweets"] = words_with_texts[:5]
             break
     return result

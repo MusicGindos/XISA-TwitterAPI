@@ -28,7 +28,7 @@ def users(word, result):
         if not exist:
             user = {}
             user["name"] = tweet["user"]["name"]
-            user["tweeter_name"] = tweet["user"]["screen_name"]
+            user["twitter_name"] = tweet["user"]["screen_name"]
             user["count"] = 1
             user["image"] = tweet["user"]["profile_image_url"].replace('_normal', '')
             user["followers_count"] = tweet["user"]["followers_count"]
