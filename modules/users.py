@@ -20,12 +20,12 @@ def users(word, result, thread_number):
                         exist = True
                         break
             if not exist:
-                user = {}
-                user["name"] = tweet["user"]["name"]
-                user["twitter_name"] = tweet["user"]["screen_name"]
-                user["count"] = 1
-                user["image"] = tweet["user"]["profile_image_url"].replace('_normal', '')
-                user["followers_count"] = tweet["user"]["followers_count"]
+                user = {'name': tweet["user"]["name"], 'twitter_name': tweet["user"]["screen_name"], 'count': 1, 'image': tweet["user"]["profile_image_url"].replace('_normal', ''), 'followers_count': tweet["user"]["followers_count"]}
+                # user["name"] = tweet["user"]["name"]
+                # user["twitter_name"] = tweet["user"]["screen_name"]
+                # user["count"] = 1
+                # user["image"] = tweet["user"]["profile_image_url"].replace('_normal', '')
+                # user["followers_count"] = tweet["user"]["followers_count"]
                 result.append(user)
         global numberOfThreadFinished
         numberOfThreadFinished += 1
