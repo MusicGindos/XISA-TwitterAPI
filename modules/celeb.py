@@ -1,7 +1,7 @@
 from twitter import *
 from threading import Thread
-from py import twitterConfig
-
+from config import twitterConfig
+from modules import json_reader_writer
 twitter = Twitter(
     auth=OAuth(twitterConfig.celeb['access_key'], twitterConfig.celeb['access_secret'], twitterConfig.celeb['consumer_key'], twitterConfig.celeb['consumer_secret']))
 
@@ -40,33 +40,36 @@ def get_tweets(name, word, result, index):
     return
 
 
-def celeb_tweets(name):
-    users = twitter.users.search(q=name, count=10)
-    followers_count = 0
-    userName = ' '
-    image = ' '
-    celeb = {}
-    for user in users:
-        if user["followers_count"] > followers_count:
-            celeb["name"] = user["name"]
-            celeb["twitter_name"] = user['screen_name']
-            celeb["image"] = user["profile_image_url"].replace('_normal', '')
-            followers_count = user["followers_count"]
+def celeb_tweets(name,category):
+    if json_reader_writer.is_category(category):
+        bad_words = json_reader_writer.read_from_data_json("categories", category)
+        users = twitter.users.search(q=name, count=10)
+        followers_count = 0
+        userName = ' '
+        image = ' '
+        celeb = {}
+        for user in users:
+            if user["followers_count"] > followers_count:
+                celeb["name"] = user["name"]
+                celeb["twitter_name"] = user['screen_name']
+                celeb["image"] = user["profile_image_url"].replace('_normal', '')
+                followers_count = user["followers_count"]
 
-    threads = [None] * 10
-    results = [None] * 10
-    badWords = ["racist", "fascist", "ugly", "stupid", "liar", "corrupt", "fat", "misogynist", "chauvinist", "idiot"]
-    for i in range(len(threads)):
-        threads[i] = Thread(target=get_tweets, args=(name, badWords[i], results, i))
-        threads[i].start()
+        threads = [None] * 10
+        results = [None] * 10
+        for i in range(len(threads)):
+            threads[i] = Thread(target=get_tweets, args=(name, bad_words[i], results, i))
+            threads[i].start()
 
-    while True:
-        if numberOfThreadFinished == 10:
-            results.sort(key=lambda x: x['bad_words_count'], reverse=True)
-            break
-    res = {}
-    res["words_with_tweets"] = results[1:6]
-    res["user_details"] = celeb
-    res["mostUsedWord"] = results[0]["word"].upper()
-    init()
-    return res
+        while True:
+            if numberOfThreadFinished == 10:
+                results.sort(key=lambda x: x['bad_words_count'], reverse=True)
+                break
+        res = {}
+        res["words_with_tweets"] = results[1:6]
+        res["user_details"] = celeb
+        res["mostUsedWord"] = results[0]["word"].upper()
+        init()
+        return res
+    else:
+        return {}
