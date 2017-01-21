@@ -25,12 +25,15 @@ def get_tweets(name, word, result, index):
         if tweet['text'] not in texts_array:
             texts_array.append(tweet['text'])
             obj = {}
-            obj["text"] = tweet['text']
+            obj["tweet"] = tweet['text']
             obj["tweet_id"] = tweet["id"]
+            obj["created_time"] = tweet["created_at"]
+            obj["name"] = tweet['user']["name"]
+            obj["twitter_name"] = tweet['user']["screen_name"]
             texts[word]['texts'].append(obj)
     bad_words_count = 0
     for text in texts[word]['texts']:
-        bad_words_count += text["text"].count(word)
+        bad_words_count += text["tweet"].count(word)
     texts[word]['bad_words_count'] = bad_words_count
     result[index] = texts[word]
     global numberOfThreadFinished
