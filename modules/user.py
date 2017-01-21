@@ -1,17 +1,17 @@
 from twitter import *
 from threading import Thread
-from py import twitterConfig
-import json
+from config import twitterConfig
+from config import base
 twitter = Twitter(
     auth=OAuth(twitterConfig.user['access_key'], twitterConfig.user['access_secret'], twitterConfig.user['consumer_key'], twitterConfig.user['consumer_secret']))
 
-badWords = ["ape","balls","gosh","fag","faggot","merciless","bullshit","clit", "wierdo", "wino", "witch", "worm", "maniac", "racist", "fascist", "liar", "corrupt", "fat", "misogynist", "chauvinist", "idiot","asshole","booby","bum","butt","boner","cocksucker","cock sucker","busty","bastard","boorish","antankerous","cunning","cynical","indolent","miserly","pompous","procrastinator","sullen","surly","shiftless","bossy","boastful","belligerent","callous","cantankerous","careless","changeable","clinging","compulsive","conservative","cowardly","cruel","deceitful","detached","dishonest","dogmatic","homo","hippie","ignoramus","domineering","finicky","flirtatious","foolish","foolhardy","fussy","greedy","grumpy","gullible","harsh","jealous","jerk","lazy","machiavellian","materialistic","ego","egoist","manic","monkey","parsimonious","patronizing","pervert","ruthless","sarcastic","secretive","selfish","silly","sneaky","stingy","stubborn","stupid","superficial","tactless","timid","touchy","thoughtless","truculent","vague","vain","vengeful","vulgar","aloof","arrogant","impatient","impolite","impulsive","inconsiderate","inconsistent","indecisive","indiscreet","inflexible","interfering","intolerant","irresponsible","obsessive","obstinate","overcritical","overemotional","abominate","afflict","aggressive","darn","agony","endanger","oblique","obscene","offender","ugly","explode","exile","emphatic","cunt","ass","blow","shit","bitch","nigga","hell","whore","dick","piss","pussy","puta","tit","damn","cum","cock","retard","fucking","fuck","motherfucker","sadist"]
 result = {}
 words_with_texts = []
 numberOfThreadFinished = 0
 user_details = {'total_bad_words': 0}
 numberOfImages = 0
 images = []
+bad_words = base.bad_words
 
 
 def init():
@@ -26,15 +26,15 @@ def init():
     global numberOfImages
     numberOfImages = 0
     global images
-    images= []
+    images = []
 
 
-def count_word(word1, string):
+def count_word(word, string):
     count = 0
     sentence = string.lower()
     sentence = sentence.split(' ')
     for word_splited in sentence:
-        if word_splited == word1:
+        if word_splited == word:
             count += 1
     return count
 
@@ -45,12 +45,12 @@ def get_tweets_from_user(user_name, page_number):
     number = 0
     word_res = {}
     try:
-        userTweets = twitter.statuses.user_timeline(screen_name=user_name,  count=200, page=page_number)
+        user_tweets = twitter.statuses.user_timeline(screen_name=user_name, count=200, page=page_number)
         if page_number == 1:
-            user_details = {'name': userTweets[0]['user']['name'], 'screen_name': userTweets[0]['user']['screen_name'], 'total_bad_words': 0, 'followers_count':userTweets[0]['user']['followers_count'],'image' : userTweets[0]['user']["profile_image_url"].replace('_normal', '')}
+            user_details = {'name': user_tweets[0]['user']['name'], 'screen_name': user_tweets[0]['user']['screen_name'], 'total_bad_words': 0, 'followers_count': user_tweets[0]['user']['followers_count'], 'image': user_tweets[0]['user']["profile_image_url"].replace('_normal', '')}
             result["user_details"] = user_details
-        for tweet in userTweets:
-            for word in badWords:
+        for tweet in user_tweets:
+            for word in bad_words:
                 count = count_word(word, tweet["text"])
                 if count > 0:
                     user_details['total_bad_words'] += count
@@ -58,12 +58,12 @@ def get_tweets_from_user(user_name, page_number):
                         for res in words_with_texts:
                             if res['word'] == word:
                                 res["count"] += count
-                                temp = {}
-                                temp["created_time"] = tweet["created_at"]
-                                temp["tweet"] = tweet["text"]
-                                temp["tweet_id"] = tweet["id"]
-                                temp["twitter_name"] = tweet['user']["screen_name"]
-                                temp["name"] = tweet['user']["name"]
+                                temp = {'created_time': tweet['created_at'], 'tweet': tweet['text'], 'tweet_id': tweet['id'], 'twitter_name': tweet['user']["screen_name"], 'name': tweet['user']['name']}
+                                # temp["created_time"] = tweet["created_at"]
+                                # temp["tweet"] = tweet["text"]
+                                # temp["tweet_id"] = tweet["id"]
+                                # temp["twitter_name"] = tweet['user']["screen_name"]
+                                # temp["name"] = tweet['user']["name"]
                                 res["texts"].append(temp)
                                 number = 1
                                 break
@@ -71,12 +71,12 @@ def get_tweets_from_user(user_name, page_number):
                         word_res["word"] = word
                         word_res["count"] = count
                         word_res["texts"] = []
-                        temp = {}
-                        temp["created_time"] = tweet["created_at"]
-                        temp["tweet"] = tweet["text"]
-                        temp["tweet_id"] = tweet["id"]
-                        temp["twitter_name"] = tweet['user']["screen_name"]
-                        temp["name"] = tweet['user']["name"]
+                        temp = {'created_time': tweet['created_at'], 'tweet': tweet['text'], 'tweet_id': tweet['id'], 'twitter_name': tweet['user']["screen_name"], 'name': tweet['user']["name"]}
+                        # temp["created_time"] = tweet["created_at"]
+                        # temp["tweet"] = tweet["text"]
+                        # temp["tweet_id"] = tweet["id"]
+                        # temp["twitter_name"] = tweet['user']["screen_name"]
+                        # temp["name"] = tweet['user']["name"]
                         word_res["texts"].append(temp)
                         words_with_texts.append(word_res)
                     global numberOfImages
@@ -92,16 +92,16 @@ def get_tweets_from_user(user_name, page_number):
                                 if temp_str not in result:
                                     try:
                                         user = twitter.statuses.user_timeline(screen_name=temp_str[1:], count=1)
-                                        image = {}
-                                        image['twitter_name'] = user[0]["user"]["screen_name"]
-                                        image['name'] = user[0]["user"]["name"]
-                                        image['image'] = user[0]["user"]["profile_image_url"].replace('_normal', '')
+                                        image = {'twitter_name': user[0]['user']['screen_name'], 'name': user[0]["user"]["name"], 'image': user[0]["user"]["profile_image_url"].replace('_normal', '')}
+                                        # image['twitter_name'] = user[0]["user"]["screen_name"]
+                                        # image['name'] = user[0]["user"]["name"]
+                                        # image['image'] = user[0]["user"]["profile_image_url"].replace('_normal', '')
                                         images.append(image)
                                         numberOfImages += 1
-                                    except:
+                                    except Exception as e:
+                                        print('Exception in get images at Thread ' + str(page_number + 1) + ' error message:' + str(e))
                                         continue
                 word_res = {}
-                temp = {}
                 number = 0
         global numberOfThreadFinished
         numberOfThreadFinished += 1
@@ -110,9 +110,10 @@ def get_tweets_from_user(user_name, page_number):
         print(page_number)
         numberOfThreadFinished += 1
         return
-    # except:
-    #     numberOfThreadFinished += 1
-    #     return
+    except Exception as e:
+        print('Exception in user at Thread ' + str(page_number + 1) + ' error message:' + str(e))
+        numberOfThreadFinished += 1
+        return
 
 
 def get_user(screen_name):
@@ -125,9 +126,9 @@ def get_user(screen_name):
     while True:
         if numberOfThreadFinished == 16:
             if result:
-                if result['user_details']['total_bad_words'] != 0 :
+                if result['user_details']['total_bad_words'] != 0:
                     words_with_texts.sort(key=lambda x: x['count'], reverse=True)
-                    result["images"] = images#list(set(images)) #remove duplicates
+                    result["images"] = images  # list(set(images)) remove duplicates
                     result["words_with_tweets"] = words_with_texts[:5]
             break
     return result
