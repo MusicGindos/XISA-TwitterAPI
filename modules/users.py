@@ -9,7 +9,7 @@ twitter = Twitter(
 
 
 badWords = ["ape","balls","gosh","fag","faggot","merciless","bullshit","clit", "wierdo", "wino", "witch", "worm", "maniac", "racist", "fascist", "liar", "corrupt", "fat", "misogynist", "chauvinist", "idiot","asshole","booby","bum","butt","boner","cocksucker","cock sucker","busty","bastard","boorish","antankerous","cunning","cynical","indolent","miserly","pompous","procrastinator","sullen","surly","shiftless","bossy","boastful","belligerent","callous","cantankerous","careless","changeable","clinging","compulsive","conservative","cowardly","cruel","deceitful","detached","dishonest","dogmatic","homo","hippie","ignoramus","domineering","finicky","flirtatious","foolish","foolhardy","fussy","greedy","grumpy","gullible","harsh","jealous","jerk","lazy","machiavellian","materialistic","ego","egoist","manic","monkey","parsimonious","patronizing","pervert","ruthless","sarcastic","secretive","selfish","silly","sneaky","stingy","stubborn","stupid","superficial","tactless","timid","touchy","thoughtless","truculent","vague","vain","vengeful","vulgar","aloof","arrogant","impatient","impolite","impulsive","inconsiderate","inconsistent","indecisive","indiscreet","inflexible","interfering","intolerant","irresponsible","obsessive","obstinate","overcritical","overemotional","abominate","afflict","aggressive","darn","agony","endanger","oblique","obscene","offender","ugly","explode","exile","emphatic","cunt","ass","blow","shit","bitch","nigga","hell","whore","dick","piss","pussy","puta","tit","damn","cum","cock","retard","fucking","fuck","motherfucker","sadist"]
-# print(len(badWords))
+
 numberOfThreadFinished = 0
 
 
@@ -67,4 +67,4 @@ def get_users():
             break
 
     res = merge_sort(results)
-    return res[:5]
+    return res[:10]

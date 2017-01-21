@@ -1,9 +1,9 @@
 from twitter import *
 from threading import Thread
 from py import twitterConfig
+import json
 twitter = Twitter(
     auth=OAuth(twitterConfig.user['access_key'], twitterConfig.user['access_secret'], twitterConfig.user['consumer_key'], twitterConfig.user['consumer_secret']))
-
 
 badWords = ["ape","balls","gosh","fag","faggot","merciless","bullshit","clit", "wierdo", "wino", "witch", "worm", "maniac", "racist", "fascist", "liar", "corrupt", "fat", "misogynist", "chauvinist", "idiot","asshole","booby","bum","butt","boner","cocksucker","cock sucker","busty","bastard","boorish","antankerous","cunning","cynical","indolent","miserly","pompous","procrastinator","sullen","surly","shiftless","bossy","boastful","belligerent","callous","cantankerous","careless","changeable","clinging","compulsive","conservative","cowardly","cruel","deceitful","detached","dishonest","dogmatic","homo","hippie","ignoramus","domineering","finicky","flirtatious","foolish","foolhardy","fussy","greedy","grumpy","gullible","harsh","jealous","jerk","lazy","machiavellian","materialistic","ego","egoist","manic","monkey","parsimonious","patronizing","pervert","ruthless","sarcastic","secretive","selfish","silly","sneaky","stingy","stubborn","stupid","superficial","tactless","timid","touchy","thoughtless","truculent","vague","vain","vengeful","vulgar","aloof","arrogant","impatient","impolite","impulsive","inconsiderate","inconsistent","indecisive","indiscreet","inflexible","interfering","intolerant","irresponsible","obsessive","obstinate","overcritical","overemotional","abominate","afflict","aggressive","darn","agony","endanger","oblique","obscene","offender","ugly","explode","exile","emphatic","cunt","ass","blow","shit","bitch","nigga","hell","whore","dick","piss","pussy","puta","tit","damn","cum","cock","retard","fucking","fuck","motherfucker","sadist"]
 result = {}
@@ -86,6 +86,9 @@ def get_tweets_from_user(user_name, page_number):
                                 if temp_str not in result:
                                     try:
                                         user = twitter.statuses.user_timeline(screen_name=temp_str[1:], count=1)
+                                        image = {}
+                                        image['screen_name'] = user[0]["user"]["screen_name"]
+                                        image
                                         images.append(user[0]["user"]["profile_image_url"].replace('_normal', ''))
                                         numberOfImages += 1
                                     except:
@@ -103,6 +106,7 @@ def get_tweets_from_user(user_name, page_number):
     except:
         numberOfThreadFinished += 1
         return
+
 
 def get_user(screen_name):
     init()

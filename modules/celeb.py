@@ -9,7 +9,6 @@ twitter = Twitter(
 bad_words = ["racist", "fascist", "ugly", "stupid", "liar", "corrupt", "fat", "misogynist", "chauvinist", "idiot"]
 numberOfThreadFinished = 0
 
-
 def init():
     global numberOfThreadFinished
     numberOfThreadFinished = 0

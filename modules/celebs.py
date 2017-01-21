@@ -1,14 +1,15 @@
 from twitter import *
 import re
+import json
 from collections import Counter
 from threading import Thread
 from py import twitterConfig
+from modules import json_reader
 
 twitter = Twitter(
     auth=OAuth(twitterConfig.celebs['access_key'], twitterConfig.celebs['access_secret'], twitterConfig.celebs['consumer_key'], twitterConfig.celebs['consumer_secret']))
 
 numberOfThreadFinished = 0
-
 def get_celebs(word, result, index):
     celebNames = []
     celebsRepeat = []
@@ -58,15 +59,16 @@ def get_celebs(word, result, index):
     return
 
 
-def celebs():
+def celebs(category):
     threads = [None] * 10
     results = [None] * 10
-    badWords = ["racist", "fascist", "ugly", "stupid", "liar", "corrupt", "fat", "misogynist", "chauvinist", "idiot"]
-    for i in range(len(threads)):
-        threads[i] = Thread(target=get_celebs, args=(badWords[i], results, i))
-        threads[i].start()
+    badWords = json_reader.read_from_data_json("categories", category)
+    if badWords:
+        for i in range(len(threads)):
+            threads[i] = Thread(target=get_celebs, args=(badWords[i], results, i))
+            threads[i].start()
 
-    while True:
-        if numberOfThreadFinished == 10:
-            break
+        while True:
+            if numberOfThreadFinished == 10:
+                break
     return results
