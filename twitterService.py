@@ -54,6 +54,8 @@ class S(BaseHTTPRequestHandler):
             if self.path.split("/")[2] is not None:
                 name = self.path.split("/")[2]
                 data = user.get_user(name)
+            # if not data:
+            #     data = {'error': 'Wrong user name'}
         elif self.path == "/favicon.ico":
             print("favicon.ico")
         else:

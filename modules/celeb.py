@@ -45,8 +45,6 @@ def celeb_tweets(name,category):
         bad_words = json_reader_writer.read_from_data_json("categories", category)
         users = twitter.users.search(q=name, count=10)
         followers_count = 0
-        userName = ' '
-        image = ' '
         celeb = {}
         for user in users:
             if user["followers_count"] > followers_count:
@@ -63,12 +61,15 @@ def celeb_tweets(name,category):
 
         while True:
             if numberOfThreadFinished == 10:
-                results.sort(key=lambda x: x['bad_words_count'], reverse=True)
-                break
-        res = {}
-        res["words_with_tweets"] = results[1:6]
-        res["user_details"] = celeb
-        res["mostUsedWord"] = results[0]["word"].upper()
+                if results:
+                    results.sort(key=lambda x: x['bad_words_count'], reverse=True)
+                    break
+                else:
+                    return {}
+        res = {'words_with_tweets': results[1:6], 'user_details': celeb, 'most_used_word': results[0]["word"].upper()}
+        # res["words_with_tweets"] = results[1:6]
+        # res["user_details"] = celeb
+        # res["mostUsedWord"] = results[0]["word"].upper()
         init()
         return res
     else:

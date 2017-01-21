@@ -63,7 +63,7 @@ def get_celebs(word, result, index):
         return
     except Exception as e:
         print('Exception in getUsers at Thread ' + str(index+1) + ' error message:' + str(e))
-        return
+        return {}
 
 
 def celebs(category):
