@@ -43,13 +43,16 @@ def get_celebs(word, result, index):
             users = twitter.users.search(q=celebName[0], count=20)
             followers_count = 0
             userName = 'a'
+            twitterName = ' '
             image = 'b'
             for user in users:
                 if user["followers_count"] > followers_count:
                     userName = user["name"]
                     followers_count = user["followers_count"]
+                    twitterName = user["screen_name"]
                     image = user["profile_image_url"].replace('_normal', '')
         tempUser["name"] = userName;
+        tempUser["twitter_name"] =twitterName
         tempUser["image"] = image
         tempUser["word"] = word.upper()
         tempUser["retweet_count"] = retweets

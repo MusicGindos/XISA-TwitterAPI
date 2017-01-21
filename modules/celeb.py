@@ -9,6 +9,7 @@ twitter = Twitter(
 bad_words = ["racist", "fascist", "ugly", "stupid", "liar", "corrupt", "fat", "misogynist", "chauvinist", "idiot"]
 numberOfThreadFinished = 0
 
+
 def init():
     global numberOfThreadFinished
     numberOfThreadFinished = 0
@@ -19,12 +20,17 @@ def get_tweets(name, word, result, index):
     phrase = '/"' + name + ' is a ' + word + '/"'
     tweets = twitter.search.tweets(q=phrase, count=100)['statuses']
     texts[word] = {'word': word, 'texts': [], 'bad_words_count': 0}
+    texts_array = []
     for tweet in tweets:
-        if tweet['text'] not in texts[word]['texts']:
-            texts[word]['texts'].append(tweet['text'])
+        if tweet['text'] not in texts_array:
+            texts_array.append(tweet['text'])
+            obj = {}
+            obj["text"] = tweet['text']
+            obj["tweet_id"] = tweet["id"]
+            texts[word]['texts'].append(obj)
     bad_words_count = 0
     for text in texts[word]['texts']:
-        bad_words_count += text.count(word)
+        bad_words_count += text["text"].count(word)
     texts[word]['bad_words_count'] = bad_words_count
     result[index] = texts[word]
     global numberOfThreadFinished
