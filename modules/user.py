@@ -61,6 +61,9 @@ def get_tweets_from_user(user_name, page_number):
                                 temp = {}
                                 temp["created_time"] = tweet["created_at"]
                                 temp["tweet"] = tweet["text"]
+                                temp["tweet_id"] = tweet["id"]
+                                temp["twitter_name"] = tweet['user']["screen_name"]
+                                temp["name"] = tweet['user']["name"]
                                 res["texts"].append(temp)
                                 number = 1
                                 break
@@ -71,6 +74,9 @@ def get_tweets_from_user(user_name, page_number):
                         temp = {}
                         temp["created_time"] = tweet["created_at"]
                         temp["tweet"] = tweet["text"]
+                        temp["tweet_id"] = tweet["id"]
+                        temp["twitter_name"] = tweet['user']["screen_name"]
+                        temp["name"] = tweet['user']["name"]
                         word_res["texts"].append(temp)
                         words_with_texts.append(word_res)
                     global numberOfImages
@@ -88,8 +94,9 @@ def get_tweets_from_user(user_name, page_number):
                                         user = twitter.statuses.user_timeline(screen_name=temp_str[1:], count=1)
                                         image = {}
                                         image['screen_name'] = user[0]["user"]["screen_name"]
-                                        image
-                                        images.append(user[0]["user"]["profile_image_url"].replace('_normal', ''))
+                                        image['name'] = user[0]["user"]["name"]
+                                        image['image'] = user[0]["user"]["profile_image_url"].replace('_normal', '')
+                                        images.append(image)
                                         numberOfImages += 1
                                     except:
                                         continue
@@ -103,9 +110,9 @@ def get_tweets_from_user(user_name, page_number):
         print(page_number)
         numberOfThreadFinished += 1
         return
-    except:
-        numberOfThreadFinished += 1
-        return
+    # except:
+    #     numberOfThreadFinished += 1
+    #     return
 
 
 def get_user(screen_name):
@@ -120,7 +127,7 @@ def get_user(screen_name):
             if result:
                 if result['user_details']['total_bad_words'] != 0 :
                     words_with_texts.sort(key=lambda x: x['count'], reverse=True)
-                    result["images"] = list(set(images)) #remove duplicates
+                    result["images"] = images#list(set(images)) #remove duplicates
                     result["words_with_texts"] = words_with_texts[:5]
             break
     return result
