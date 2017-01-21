@@ -22,7 +22,7 @@ users = {
 
 user = {
     "consumer_key": "1b7veNvOFSLQobADTLDCkqNpD",
-   "consumer_secret": "FbbKPoJUOOb7mBd1mHdOatksrNlcH3tJQbkENDmdjm1eayfM8U",
+    "consumer_secret": "FbbKPoJUOOb7mBd1mHdOatksrNlcH3tJQbkENDmdjm1eayfM8U",
     "access_key": "798072331864309765-fcTHr0dBJhIAjWpBaGBC9KqR86nkXN5",
     "access_secret": "3FtgkmtDLOVf9qdXZi0Crr8G94GTZQKoZOAgL8I9VHdvh"
 }

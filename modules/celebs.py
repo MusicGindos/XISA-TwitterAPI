@@ -10,6 +10,8 @@ twitter = Twitter(
     auth=OAuth(twitterConfig.celebs['access_key'], twitterConfig.celebs['access_secret'], twitterConfig.celebs['consumer_key'], twitterConfig.celebs['consumer_secret']))
 
 numberOfThreadFinished = 0
+
+
 def get_celebs(word, result, index):
     celebNames = []
     celebsRepeat = []

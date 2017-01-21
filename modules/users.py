@@ -13,29 +13,33 @@ badWords = ["ape","balls","gosh","fag","faggot","merciless","bullshit","clit", "
 numberOfThreadFinished = 0
 
 
-def users(word, result):
-    q1 = '/"is a ' + word + '/"'
-    tweetsWithWord = twitter.search.tweets(q=q1, count=100)['statuses']
-    for tweet in tweetsWithWord:
-        exist = False
-        for user in result:
-            if not result:
-                if user["name"] == tweet["user"]["name"]:
-                    user["count"] += 1
-                    user['texts'].append(tweet['text'])
-                    exist = True
-                    break
-        if not exist:
-            user = {}
-            user["name"] = tweet["user"]["name"]
-            user["twitter_name"] = tweet["user"]["screen_name"]
-            user["count"] = 1
-            user["image"] = tweet["user"]["profile_image_url"].replace('_normal', '')
-            user["followers_count"] = tweet["user"]["followers_count"]
-            result.append(user)
-    global numberOfThreadFinished
-    numberOfThreadFinished += 1
-    return
+def users(word, result, thread_number):
+    try:
+        q1 = '/"is a ' + word + '/"'
+        tweetsWithWord = twitter.search.tweets(q=q1, count=100)['statuses']
+        for tweet in tweetsWithWord:
+            exist = False
+            for user in result:
+                if not result:
+                    if user["name"] == tweet["user"]["name"]:
+                        user["count"] += 1
+                        user['texts'].append(tweet['text'])
+                        exist = True
+                        break
+            if not exist:
+                user = {}
+                user["name"] = tweet["user"]["name"]
+                user["twitter_name"] = tweet["user"]["screen_name"]
+                user["count"] = 1
+                user["image"] = tweet["user"]["profile_image_url"].replace('_normal', '')
+                user["followers_count"] = tweet["user"]["followers_count"]
+                result.append(user)
+        global numberOfThreadFinished
+        numberOfThreadFinished += 1
+        return
+    except Exception as e:
+        print('Exception in getUsers at Thread ' + thread_number+ ' error message:' + str(e))
+        return
 
 
 def merge_sort(users_array):
@@ -59,7 +63,7 @@ def get_users():
     threads = [None] * 152
     results = []
     for i in range(len(threads)):
-            threads[i] = Thread(target=users, args=(badWords[i], results))
+            threads[i] = Thread(target=users, args=(badWords[i], results,i))
             threads[i].start()
 
     while True:

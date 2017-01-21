@@ -66,7 +66,7 @@ def celeb_tweets(name):
             break
     res = {}
     res["words_with_tweets"] = results[1:6]
-    res["celeb_details"] = celeb
+    res["user_details"] = celeb
     res["mostUsedWord"] = results[0]["word"].upper()
     init()
     return res

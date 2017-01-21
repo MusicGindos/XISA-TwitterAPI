@@ -93,7 +93,7 @@ def get_tweets_from_user(user_name, page_number):
                                     try:
                                         user = twitter.statuses.user_timeline(screen_name=temp_str[1:], count=1)
                                         image = {}
-                                        image['screen_name'] = user[0]["user"]["screen_name"]
+                                        image['twitter_name'] = user[0]["user"]["screen_name"]
                                         image['name'] = user[0]["user"]["name"]
                                         image['image'] = user[0]["user"]["profile_image_url"].replace('_normal', '')
                                         images.append(image)
