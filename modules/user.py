@@ -1,7 +1,6 @@
 from twitter import *
 from threading import Thread
 from config import twitterConfig
-from config import base
 twitter = Twitter(
     auth=OAuth(twitterConfig.user['access_key'], twitterConfig.user['access_secret'], twitterConfig.user['consumer_key'], twitterConfig.user['consumer_secret']))
 
@@ -11,7 +10,7 @@ numberOfThreadFinished = 0
 user_details = {'total_bad_words': 0}
 numberOfImages = 0
 images = []
-bad_words = base.bad_words
+bad_words = twitterConfig.bad_words
 
 
 def init():

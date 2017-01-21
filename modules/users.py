@@ -1,7 +1,6 @@
 from twitter import *
 from threading import Thread
 from config import twitterConfig
-from config import base
 twitter = Twitter(
     auth=OAuth(twitterConfig.users['access_key'], twitterConfig.users['access_secret'], twitterConfig.users['consumer_key'], twitterConfig.users['consumer_secret']))
 numberOfThreadFinished = 0
@@ -56,7 +55,7 @@ def merge_sort(users_array):
 def get_users():
     threads = [None] * 152
     results = []
-    bad_words = base.bad_words
+    bad_words = twitterConfig.bad_words
     for i in range(len(threads)):
             threads[i] = Thread(target=users, args=(bad_words[i], results, i))
             threads[i].start()
