@@ -62,8 +62,9 @@ def get_celebs(word, result, index):
         numberOfThreadFinished += 1
         return
     except Exception as e:
-        print('Exception in getUsers at Thread ' + str(index+1) + ' error message:' + str(e))
-        return {}
+        print('Exception in get_celebs at Thread ' + str(index+1) + ' error message:' + str(e))
+        numberOfThreadFinished += 1
+        return
 
 
 def celebs(category):
