@@ -34,17 +34,19 @@ class S(BaseHTTPRequestHandler):
                     data = json_reader_writer.read_from_data_json("celebs", category)
             else:
                 data = {'error': "wrong category"}
-        elif self.path.startswith("/celeb/"):
+        elif self.path.startswith("/celeb"):
+            name = ''
+            category = ''
             try:
                 if self.path.split("/")[2] is not None and self.path.split("/")[3] is not None:
                     name = self.path.split("/")[2]
                     category = self.path.split("/")[3]
-                    data = celeb.celeb_tweets(name, category)
-                if not data:
-                    data = {'error': 'wrong category'}
             except IndexError:
-                data = {'error': 'not enough parameters'}
-
+                name = self.path.split("/")[2]
+                category = "default"
+            data = celeb.celeb_tweets(name, category)
+            if not data:
+                data = {'error': 'wrong category'}
         elif self.path == "/getUsers":
             time_difference = json_reader_writer.calculate_differences_between_datetime(json_reader_writer.read_from_times_json("users_time"))
             if time_difference > 70:

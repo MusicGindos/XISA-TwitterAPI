@@ -40,7 +40,7 @@ def get_tweets(name, word, result, index):
     return
 
 
-def celeb_tweets(name,category):
+def celeb_tweets(name, category):
     if json_reader_writer.is_category(category):
         bad_words = json_reader_writer.read_from_data_json("categories", category)
         users = twitter.users.search(q=name, count=10)

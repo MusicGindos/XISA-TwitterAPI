@@ -63,4 +63,7 @@ def get_users():
         if numberOfThreadFinished == 152:
             break
     res = merge_sort(results)
-    return res[:10]
+    # for r in res:
+    #     if r[]
+    # return res[:10] TODO: return only users with 100+ followers
+    return res
