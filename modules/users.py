@@ -19,7 +19,7 @@ def users(word, result, thread_number):
                         user['texts'].append(tweet['text'])
                         exist = True
                         break
-            if not exist:
+            if not exist and tweet["user"]["followers_count"] > 100:
                 user = {'name': tweet["user"]["name"], 'twitter_name': tweet["user"]["screen_name"], 'count': 1, 'image': tweet["user"]["profile_image_url"].replace('_normal', ''), 'followers_count': tweet["user"]["followers_count"]}
                 result.append(user)
         global numberOfThreadFinished
@@ -47,18 +47,6 @@ def merge_sort(users_array):
     return results
 
 
-def sort_by_followers(users_data):
-    index = 0
-    arr = []
-    for user in users_data:
-        if user['followers_count'] > 100:
-            arr.append(user)
-            index += 1
-            if index > 9:
-                break
-    return arr
-
-
 def get_users():
     threads = [None] * 152
     results = []
@@ -70,5 +58,4 @@ def get_users():
         if numberOfThreadFinished == 152:
             break
     res = merge_sort(results)
-    res = sort_by_followers(res)
-    return res
+    return res[:10]
