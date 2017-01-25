@@ -10,66 +10,75 @@ from modules import json_reader_writer
 
 class S(BaseHTTPRequestHandler):
     def do_GET(self):
-        print('got GET request: ' + self.path)
-        data = {}
-        if self.path.startswith("/getCelebs"):
-            try:
-                category = self.path.split("/")[2]
-            # if self.path.split("/")[2] is not None:
-            #     category = self.path.split("/")[2]
-            except IndexError:
-                category = "default"
-            if json_reader_writer.is_category(category):
-                print(category)
-                time_difference = json_reader_writer.calculate_differences_between_datetime(json_reader_writer.read_from_times_with_categories("celebs_catergories", category))
-                print("Last updated json was " + str(time_difference/60) + ' hours ago')
-                if time_difference > 70:
-                    json_reader_writer.update_time_by_key("celebs_catergories", category)
-                    data = celebs.celebs(category)
-                    if data:
-                        json_reader_writer.write_to_data_json("celebs", data, category)
+        try:
+            print('got GET request: ' + self.path)
+            data = {}
+            if self.path.startswith("/getCelebs"):
+                try:
+                    category = self.path.split("/")[2]
+                # if self.path.split("/")[2] is not None:
+                #     category = self.path.split("/")[2]
+                except IndexError:
+                    category = "default"
+                if json_reader_writer.is_category(category):
+                    print(category)
+                    time_difference = json_reader_writer.calculate_differences_between_datetime(json_reader_writer.read_from_times_with_categories("celebs_catergories", category))
+                    print("Last updated json was " + str(time_difference/60) + ' hours ago')
+                    if time_difference > 70:
+                        json_reader_writer.update_time_by_key("celebs_catergories", category)
+                        data = celebs.celebs(category)
+                        if data:
+                            json_reader_writer.write_to_data_json("celebs", data, category)
+                        else:
+                            data = json_reader_writer.read_from_data_json("celebs", category)
                     else:
                         data = json_reader_writer.read_from_data_json("celebs", category)
                 else:
-                    data = json_reader_writer.read_from_data_json("celebs", category)
-            else:
-                data = {'error': "wrong category"}
-        elif self.path.startswith("/celeb"):
-            name = ''
-            category = ''
-            try:
-                if self.path.split("/")[2] is not None and self.path.split("/")[3] is not None:
+                    data = {'error': "wrong category"}
+            elif self.path.startswith("/celeb"):
+                name = ''
+                category = ''
+                try:
+                    if self.path.split("/")[2] is not None and self.path.split("/")[3] is not None:
+                        name = self.path.split("/")[2]
+                        category = self.path.split("/")[3]
+                except IndexError:
                     name = self.path.split("/")[2]
-                    category = self.path.split("/")[3]
-            except IndexError:
-                name = self.path.split("/")[2]
-                category = "default"
-            data = celeb.celeb_tweets(name, category)
-            if not data:
-                data = {'error': 'wrong category'}
-        elif self.path == "/getUsers":
-            time_difference = json_reader_writer.calculate_differences_between_datetime(json_reader_writer.read_from_times_json("users_time"))
-            if time_difference > 70:
-                json_reader_writer.update_time_by_key("users_time")
-                data = users.get_users()
-                json_reader_writer.write_to_data_json("users", data)
+                    category = "default"
+                data = celeb.celeb_tweets(name, category)
+                if not data:
+                    data = {'error': 'wrong category'}
+            elif self.path == "/getUsers":
+                time_difference = json_reader_writer.calculate_differences_between_datetime(json_reader_writer.read_from_times_json("users_time"))
+                if time_difference > 70:
+                    json_reader_writer.update_time_by_key("users_time")
+                    data = users.get_users()
+                    json_reader_writer.write_to_data_json("users", data)
+                else:
+                    data = json_reader_writer.read_from_data_json("users")
+            elif self.path.startswith("/user/"):
+                if self.path.split("/")[2] is not None:
+                    name = self.path.split("/")[2]
+                    data = user.get_user(name)
+                if not data:
+                    data = {'error': 'Wrong user name'}
+            elif self.path == "/favicon.ico":
+                print("favicon.ico")
             else:
-                data = json_reader_writer.read_from_data_json("users")
-        elif self.path.startswith("/user/"):
-            if self.path.split("/")[2] is not None:
-                name = self.path.split("/")[2]
-                data = user.get_user(name)
-            if not data:
-                data = {'error': 'Wrong user name'}
-        elif self.path == "/favicon.ico":
-            print("favicon.ico")
-        else:
-            data = {'Error': 'Wrong path: ' + self.path, "API": "https://github.com/MusicGindos/XISA-TwitterAPI"}
-        self.send_response(200)
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Content-type', 'application/json')
-        self.end_headers()
-        self.wfile.write(json.dumps(data).encode("utf-8"))
+                data = {'error': 'Wrong path: ' + self.path, "API": "https://github.com/MusicGindos/XISA-TwitterAPI"}
+            self.send_response(200)
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps(data).encode("utf-8"))
+        except Exception as e:
+            print('Exception in do_get error message:' + str(e))
+            data = {'error': 'Error in server'}
+            self.send_response(200)
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps(data).encode("utf-8"))
 
 
 def run(server_class=HTTPServer, handler_class=S, port=8080):
