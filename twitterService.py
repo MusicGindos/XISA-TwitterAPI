@@ -16,8 +16,6 @@ class S(BaseHTTPRequestHandler):
             if self.path.startswith("/getCelebs"):
                 try:
                     category = self.path.split("/")[2]
-                # if self.path.split("/")[2] is not None:
-                #     category = self.path.split("/")[2]
                 except IndexError:
                     category = "default"
                 if json_reader_writer.is_category(category):
@@ -25,7 +23,7 @@ class S(BaseHTTPRequestHandler):
                     time_difference = json_reader_writer.calculate_differences_between_datetime(json_reader_writer.read_from_times_with_categories("celebs_catergories", category))
                     print("Last updated json was " + str(time_difference/60) + ' hours ago')
                     if time_difference > 70:
-                        json_reader_writer.update_time_by_key("celebs_catergories", category)
+                        json_reader_writer.update_time_by_key("celebs_categories", category)
                         data = celebs.celebs(category)
                         if data:
                             json_reader_writer.write_to_data_json("celebs", data, category)
@@ -50,10 +48,13 @@ class S(BaseHTTPRequestHandler):
                     data = {'error': 'wrong category'}
             elif self.path == "/getUsers":
                 time_difference = json_reader_writer.calculate_differences_between_datetime(json_reader_writer.read_from_times_json("users_time"))
-                if time_difference > 70:
+                if time_difference > 1440:
                     json_reader_writer.update_time_by_key("users_time")
                     data = users.get_users()
-                    json_reader_writer.write_to_data_json("users", data)
+                    if data:
+                        json_reader_writer.write_to_data_json("users", data)
+                    else:
+                        data = json_reader_writer.read_from_data_json("users")
                 else:
                     data = json_reader_writer.read_from_data_json("users")
             elif self.path.startswith("/user/"):

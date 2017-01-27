@@ -58,11 +58,6 @@ def get_tweets_from_user(user_name, page_number):
                             if res['word'] == word:
                                 res["count"] += count
                                 temp = {'created_time': tweet['created_at'], 'tweet': tweet['text'], 'tweet_id': tweet['id'], 'twitter_name': tweet['user']["screen_name"], 'name': tweet['user']['name']}
-                                # temp["created_time"] = tweet["created_at"]
-                                # temp["tweet"] = tweet["text"]
-                                # temp["tweet_id"] = tweet["id"]
-                                # temp["twitter_name"] = tweet['user']["screen_name"]
-                                # temp["name"] = tweet['user']["name"]
                                 res["texts"].append(temp)
                                 number = 1
                                 break
@@ -71,11 +66,6 @@ def get_tweets_from_user(user_name, page_number):
                         word_res["count"] = count
                         word_res["texts"] = []
                         temp = {'created_time': tweet['created_at'], 'tweet': tweet['text'], 'tweet_id': tweet['id'], 'twitter_name': tweet['user']["screen_name"], 'name': tweet['user']["name"]}
-                        # temp["created_time"] = tweet["created_at"]
-                        # temp["tweet"] = tweet["text"]
-                        # temp["tweet_id"] = tweet["id"]
-                        # temp["twitter_name"] = tweet['user']["screen_name"]
-                        # temp["name"] = tweet['user']["name"]
                         word_res["texts"].append(temp)
                         words_with_texts.append(word_res)
                     global numberOfImages
@@ -92,9 +82,6 @@ def get_tweets_from_user(user_name, page_number):
                                     try:
                                         user = twitter.statuses.user_timeline(screen_name=temp_str[1:], count=1)
                                         image = {'twitter_name': user[0]['user']['screen_name'], 'name': user[0]["user"]["name"], 'image': user[0]["user"]["profile_image_url"].replace('_normal', '')}
-                                        # image['twitter_name'] = user[0]["user"]["screen_name"]
-                                        # image['name'] = user[0]["user"]["name"]
-                                        # image['image'] = user[0]["user"]["profile_image_url"].replace('_normal', '')
                                         images.append(image)
                                         numberOfImages += 1
                                     except Exception as e:
@@ -127,7 +114,7 @@ def get_user(screen_name):
             if result:
                 if result['user_details']['total_bad_words'] != 0:
                     words_with_texts.sort(key=lambda x: x['count'], reverse=True)
-                    result["images"] = images  # list(set(images)) remove duplicates
+                    result["images"] = images[:5]  # list(set(images)) remove duplicates
                     result["words_with_tweets"] = words_with_texts[:5]
             break
     return result

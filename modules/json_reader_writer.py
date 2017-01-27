@@ -4,7 +4,7 @@ import json
 fmt = '%Y-%m-%d %H:%M:%S'
 
 
-def calculate_differences_between_datetime(old_time):  # pass argument as "2017-01-16 17:41:08"
+def calculate_differences_between_datetime(old_time):  # pass argument as "2017-01-16 17:41:08" format
     old = datetime.strptime(old_time, fmt)
     now = datetime.strptime(str(datetime.now()).split('.')[0], fmt)
     dif = ((now-old).total_seconds())/60

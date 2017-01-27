@@ -4,12 +4,17 @@ from config import twitterConfig
 twitter = Twitter(
     auth=OAuth(twitterConfig.users['access_key'], twitterConfig.users['access_secret'], twitterConfig.users['consumer_key'], twitterConfig.users['consumer_secret']))
 numberOfThreadFinished = 0
+rate_limit_flag = False
 
 
 def users(word, result, thread_number):
     try:
-        q1 = '/"is a ' + word + '/"'
+        if word[0] in twitterConfig.aeiou:
+            q1 = '/"is an ' + word + '/"'
+        else:
+            q1 = '/"is a ' + word + '/"'
         tweets = twitter.search.tweets(q=q1, count=100)['statuses']
+        print('word = ' + word + '  count = ' + str(len(tweets)))
         for tweet in tweets:
             exist = False
             for user in result:
@@ -26,7 +31,14 @@ def users(word, result, thread_number):
         numberOfThreadFinished += 1
         return
     except Exception as e:
-        print('Exception in getUsers at Thread ' + str(thread_number) + ' error message:' + str(e))
+        if "Rate limit exceeded" in str(e):
+            print("Rate limit exceeded")
+            global rate_limit_flag
+            rate_limit_flag = True
+            numberOfThreadFinished += 1
+            return
+        else:
+            print('Exception in getUsers at Thread ' + str(thread_number) + ' error message:' + str(e))
         return
 
 
@@ -57,5 +69,9 @@ def get_users():
     while True:
         if numberOfThreadFinished == 152:
             break
-    res = merge_sort(results)
-    return res[:10]
+    if rate_limit_flag:
+        res = {}
+        return res
+    else:
+        res = merge_sort(results)
+        return res[:10]

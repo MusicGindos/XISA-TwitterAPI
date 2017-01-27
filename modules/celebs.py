@@ -8,6 +8,7 @@ from modules import json_reader_writer
 twitter = Twitter(
     auth=OAuth(twitterConfig.celebs['access_key'], twitterConfig.celebs['access_secret'], twitterConfig.celebs['consumer_key'], twitterConfig.celebs['consumer_secret']))
 numberOfThreadFinished = 0
+rate_limit_flag = False
 
 
 def get_celebs(word, result, index):
@@ -62,7 +63,12 @@ def get_celebs(word, result, index):
         numberOfThreadFinished += 1
         return
     except Exception as e:
-        print('Exception in get_celebs at Thread ' + str(index+1) + ' error message:' + str(e))
+        if "Rate limit exceeded" in str(e):
+            print("Rate limit exceeded")
+            global rate_limit_flag
+            rate_limit_flag = True
+        else:
+            print('Exception in get_celebs at Thread ' + str(index+1) + ' error message:' + str(e))
         numberOfThreadFinished += 1
         return
 
@@ -78,4 +84,6 @@ def celebs(category):
         while True:
             if numberOfThreadFinished == 10:
                 break
+    if rate_limit_flag:
+        return {}
     return results
