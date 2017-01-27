@@ -104,7 +104,7 @@
 				"word": "MOTHERFUCKER"
 			}
 		],
-		"Belief/Agenda": [{
+		"Belief-Agenda": [{
 				"retweet_count": 325,
 				"image": "http://pbs.twimg.com/profile_images/2044852218/NYT_Twitter_Krugman.png",
 				"twitter_name": "paulkrugman",
@@ -228,7 +228,7 @@
 				"word": "RACIST"
 			}
 		],
-		"Crazy/ill": [{
+		"Crazy-ill": [{
 				"retweet_count": 258,
 				"image": "http://pbs.twimg.com/profile_images/458727541302259712/67_6_QUc.jpeg",
 				"twitter_name": "carrolltrust",
@@ -337,16 +337,16 @@
 				"word": "GREEDY"
 			}
 		],
-		"Gay/sexuality": []
+		"Gay-sexuality": []
 	},
 	"categories": {
 		"Body parts": ["pussy", "cock", "dick", "shit", "ass", "cunt", "ugly", "butt", "asshole", "fat"],
 		"Misogynist": ["conservative", "cunt", "blow", "bitch", "whore", "pussy", "puta", "tit", "fuck", "motherfucker"],
-		"Belief/Agenda": ["motherfucker", "fuck", "sadist", "materialistic", "machiavellian", "chauvinist", "misogynist", "liar", "fascist", "racist"],
+		"Belief-Agenda": ["motherfucker", "fuck", "sadist", "materialistic", "machiavellian", "chauvinist", "misogynist", "liar", "fascist", "racist"],
 		"Default": ["stupid", "greedy", "cunt", "fat", "whore", "fuck", "fascist", "maniac", "misogynist", "racist"],
-		"Crazy/ill": ["motherfucker", "fuck", "fucking", "obsessive", "pervert", "manic", "ego", "compulsive", "idiot", "maniac"],
+		"Crazy-ill": ["motherfucker", "fuck", "fucking", "obsessive", "pervert", "manic", "ego", "compulsive", "idiot", "maniac"],
 		"Characteristics": ["stupid", "miserly", "foolish", "selfish", "silly", "jerk", "egoist", "lazy", "jealous", "greedy"],
-		"Gay/sexuality": ["fag","faggot","cocksucker","cock sucker","homo","blow","fucking","fuck","motherfucker","bitch"]
+		"Gay-sexuality": ["fag","faggot","cocksucker","cock sucker","homo","blow","fucking","fuck","motherfucker","bitch"]
 	},
 	"users": [{
 			"count": 17,
@@ -410,5 +410,5 @@
 			"twitter_name": "mikunadia"
 		}
 	],
-	"categories_only": ["Misogynist", "Belief/Agenda", "Crazy/ill", "Body parts", "Characteristics", "Default","Gay/sexuality"]
+	"categories_only": ["Misogynist", "Belief-Agenda", "Crazy-ill", "Body parts", "Characteristics", "Default","Gay-sexuality"]
 }
