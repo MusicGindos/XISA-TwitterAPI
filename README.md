@@ -6,21 +6,45 @@
 
 ## GET calls
 
-### Celebs
+### Celebs with no category
 * URL : https://xisaapi.herokuapp.com/getCelebs
 * Example : https://xisaapi.herokuapp.com/getCelebs
 * Params : None
 * Callback : Array of celebs
 
-### Celeb
-* URL = https://xisaapi.herokuapp.com/celeb/xxx
+### Celebs with category
+* URL : https://xisaapi.herokuapp.com/getCelebs/<category>
+* Example : https://xisaapi.herokuapp.com/getCelebs/crazy-ill
+* Params : category must be one of this:
+    * characteristics
+    * body-parts
+    * misogynist
+    * gay-sexuality
+    * crazy-ill
+    * belief-agenda
+* Callback : Array of celebs
+
+### Celeb with no category
+* URL = https://xisaapi.herokuapp.com/celeb/<last_name>
 * Example = https://xisaapi.herokuapp.com/celeb/trump
-* Params : xxx = "trump"
+* Params : last_name = the last name of the celeb
+* Callback : Celeb with tweets
+
+### Celeb with category
+* URL = https://xisaapi.herokuapp.com/celeb/<last_name>/<category>
+* Example = https://xisaapi.herokuapp.com/celeb/trump/crazy-ill
+* Params : last_name = "trump", category must be one of this:
+    * characteristics
+    * body-parts
+    * misogynist
+    * gay-sexuality
+    * crazy-ill
+    * belief-agenda
 * Callback : Celeb with tweets
 
 ### Users
-* URL = https://xisaapi.herokuapp.com/getCelebs
-* Example = https://xisaapi.herokuapp.com/getCelebs
+* URL = https://xisaapi.herokuapp.com/getUsers
+* Example = https://xisaapi.herokuapp.com/getUsers
 * Params = none
 * Callback : array of celebs
 
