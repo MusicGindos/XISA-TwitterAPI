@@ -17,10 +17,10 @@ class S(BaseHTTPRequestHandler):
                 try:
                     category = self.path.split("/")[2]
                 except IndexError:
-                    category = "Default"
+                    category = "default"
                 if json_reader_writer.is_category(category):
                     print(category)
-                    time_difference = json_reader_writer.calculate_differences_between_datetime(json_reader_writer.read_from_times_with_categories("celebs_catergories", category))
+                    time_difference = json_reader_writer.calculate_differences_between_datetime(json_reader_writer.read_from_times_with_categories("celebs_categories", category))
                     print("Last updated json was " + str(time_difference/60) + ' hours ago')
                     if time_difference > 70:
                         json_reader_writer.update_time_by_key("celebs_categories", category)
@@ -42,7 +42,7 @@ class S(BaseHTTPRequestHandler):
                         category = self.path.split("/")[3]
                 except IndexError:
                     name = self.path.split("/")[2]
-                    category = "Default"
+                    category = "default"
                 data = celeb.celeb_tweets(name, category)
                 if not data:
                     data = {'error': 'wrong category'}
