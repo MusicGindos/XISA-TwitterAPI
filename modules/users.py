@@ -14,7 +14,6 @@ def users(word, result, thread_number):
         else:
             q1 = '/"is a ' + word + '/"'
         tweets = twitter.search.tweets(q=q1, count=100)['statuses']
-        print('word = ' + word + '  count = ' + str(len(tweets)))
         for tweet in tweets:
             exist = False
             for user in result:
@@ -61,17 +60,17 @@ def merge_sort(users_array):
 
 def get_users():
     bad_words = twitterConfig.bad_words
-    threads = [None] * len(bad_words)
+    threads = [None] * (len(bad_words)-1)
     results = []
 
     for i in range(len(threads)):
             threads[i] = Thread(target=users, args=(bad_words[i], results, i))
             threads[i].start()
     while True:
-        if numberOfThreadFinished == len(bad_words):
+        if numberOfThreadFinished == (len(bad_words)-1):
             break
     if rate_limit_flag:
-        res = {}
+        res = []
         return res
     else:
         res = merge_sort(results)

@@ -5,22 +5,20 @@ from modules import json_reader_writer
 twitter = Twitter(
     auth=OAuth(twitterConfig.celeb['access_key'], twitterConfig.celeb['access_secret'], twitterConfig.celeb['consumer_key'], twitterConfig.celeb['consumer_secret']))
 numberOfThreadFinished = 0
-
+total_bad_tweets = 0
 
 def init():
     global numberOfThreadFinished
     numberOfThreadFinished = 0
 
 
-# def delete_none_from_list(list):
-#     for l in list:
-#         if l is None:
-#             delete l
-
 def get_tweets(name, word, result, index):
     texts = {}
     phrase = '/"' + name + ' is a ' + word + '/"'
     tweets = twitter.search.tweets(q=phrase, count=100)['statuses']
+    global total_bad_tweets
+    total_bad_tweets += len(tweets)
+    print(len(tweets))
     texts[word] = {'word': word, 'texts': [], 'bad_words_count': 0}
     texts_array = []
     for tweet in tweets:
@@ -69,7 +67,7 @@ def celeb_tweets(name, category, twitter_name="realDonaldTrump"):
                     break
                 else:
                     return {}
-        res = {'words_with_tweets': results, 'user_details': celeb, 'most_used_word': most_used_word}
+        res = {'words_with_tweets': results, 'user_details': celeb, 'most_used_word': most_used_word, 'total_bad_tweets': total_bad_tweets}
         init()
         return res
     else:
