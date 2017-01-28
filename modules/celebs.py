@@ -39,25 +39,31 @@ def get_celebs(word, result, index):
                     celeb_names.append(output_obj['good'])
         output_obj['retweet_count'] = retweets
         if celeb_names:
-            celeb_name = Counter(celeb_names).most_common(1)[0]
-            if celeb_name[0] not in celebs_repeat:
-                celebs_repeat.append(celeb_name[0])
-                users = twitter.users.search(q=celeb_name[0], count=20)
-                followers_count = 0
-                user_name = 'a'
-                twitter_name = ' '
-                image = 'b'
-                for user in users:
-                    if user["followers_count"] > followers_count:
-                        user_name = user["name"]
-                        followers_count = user["followers_count"]
-                        twitter_name = user["screen_name"]
-                        image = user["profile_image_url"].replace('_normal', '')
-            temp_user["name"] = user_name;
-            temp_user["twitter_name"] = twitter_name
-            temp_user["image"] = image
-            temp_user["word"] = word.upper()
-            temp_user["retweet_count"] = retweets
+            for i in range(len(celeb_names)):
+                celeb_name = Counter(celeb_names).most_common(i+1)[i]
+                if celeb_name[0] not in celebs_repeat:
+                    celebs_repeat.append(celeb_name[0])
+                    users = twitter.users.search(q=celeb_name[0], count=20)
+                    if len(users) == 0:
+                        continue
+                    followers_count = 0
+                    user_name = ''
+                    twitter_name = ''
+                    image = ''
+                    for user in users:
+                        if word is "foolish":
+                            print(user["name"])
+                        if user["followers_count"] > followers_count and user["name"]:
+                            user_name = user["name"]
+                            followers_count = user["followers_count"]
+                            twitter_name = user["screen_name"]
+                            image = user["profile_image_url"].replace('_normal', '')
+                    temp_user["name"] = user_name
+                    temp_user["twitter_name"] = twitter_name
+                    temp_user["image"] = image
+                    temp_user["word"] = word.upper()
+                    temp_user["retweet_count"] = retweets
+                    break
         result[index] = temp_user
         global numberOfThreadFinished
         numberOfThreadFinished += 1
