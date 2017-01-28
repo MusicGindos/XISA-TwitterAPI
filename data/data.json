@@ -1,5 +1,4 @@
 {
-	"categories_only": ["misogynist", "belief-agenda", "crazy-ill", "body-parts", "characteristics", "default", "gay-sexuality"],
 	"users": [{
 			"count": 17,
 			"twitter_name": "DatSeirinAce",
@@ -62,431 +61,450 @@
 			"image": "http://pbs.twimg.com/profile_images/536385003144634368/TWwqVV0p.jpeg"
 		}
 	],
+	"categories": {
+		"characteristics": ["stupid", "cynical", "foolish", "selfish", "silly", "jerk", "bullshit", "lazy", "jealous", "greedy"],
+		"gay-sexuality": ["fag", "faggot", "cocksucker", "cock sucker", "homo", "blow", "fucking", "fuck", "motherfucker", "bitch"],
+		"default": ["stupid", "greedy", "cunt", "fat", "whore", "fuck", "fascist", "maniac", "misogynist", "racist"],
+		"belief-agenda": ["motherfucker", "fuck", "sadist", "materialistic", "dumb", "chauvinist", "misogynist", "liar", "fascist", "racist"],
+		"misogynist": ["conservative", "cunt", "blow", "bitch", "whore", "pussy", "puta", "tit", "fuck", "motherfucker"],
+		"crazy-ill": ["motherfucker", "fuck", "fucking", "fool", "pervert", "manic", "ego", "compulsive", "idiot", "maniac"],
+		"body-parts": ["pussy", "cock", "dick", "shit", "ass", "cunt", "ugly", "butt", "asshole", "fat"]
+	},
 	"celebs": {
-		"default": [{
-				"word": "STUPID",
-				"twitter_name": "thismorning",
-				"name": "This Morning",
-				"retweet_count": 564,
-				"image": "http://pbs.twimg.com/profile_images/815992706749136896/yPJAcAb6.jpg"
-			}, {
-				"word": "GREEDY",
-				"twitter_name": "ElaheIzadi",
-				"name": "Elahe Izadi",
-				"retweet_count": 61,
-				"image": "http://pbs.twimg.com/profile_images/722510216970027008/jDOduhL2.jpg"
-			}, {
-				"word": "CUNT",
-				"twitter_name": "allliSONshinee",
-				"name": "Allison Patrico",
-				"retweet_count": 4393,
-				"image": "http://pbs.twimg.com/profile_images/821094239165681665/Kk-m0RBN.jpg"
-			}, {
-				"word": "FAT",
-				"twitter_name": "deathwishinc",
-				"name": "Deathwish",
-				"retweet_count": 263,
-				"image": "http://pbs.twimg.com/profile_images/814562839818104832/aygYCTr7.jpg"
-			}, {
-				"word": "WHORE",
-				"twitter_name": "ResourcefulMom",
-				"name": "Amy Lupold Bair",
-				"retweet_count": 1725,
-				"image": "http://pbs.twimg.com/profile_images/802672791040434177/bC2t-rP2.jpg"
-			}, {
-				"word": "FUCK",
-				"twitter_name": "joemckendrick",
-				"name": "Joe McKendrick",
-				"retweet_count": 780,
-				"image": "http://pbs.twimg.com/profile_images/3512965614/f07ff67cee5d5b87a5303670ba0bba3a.jpeg"
-			}, {
-				"word": "FASCIST",
-				"twitter_name": "realDonaldTrump",
-				"name": "Donald J. Trump",
-				"retweet_count": 2901,
-				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg"
-			}, {
-				"word": "MANIAC",
-				"twitter_name": "realDonaldTrump",
-				"name": "Donald J. Trump",
-				"retweet_count": 6212,
-				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg"
-			}, {
-				"word": "MISOGYNIST",
-				"twitter_name": "realDonaldTrump",
-				"name": "Donald J. Trump",
-				"retweet_count": 458,
-				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg"
-			}, {
-				"word": "RACIST",
-				"twitter_name": "Idubbbz",
-				"name": "The idubbbz",
-				"retweet_count": 66221,
-				"image": "http://pbs.twimg.com/profile_images/798864810846752768/XNrceKON.jpg"
-			}
-		],
 		"characteristics": [{
-				"word": "STUPID",
+				"retweet_count": 27404,
+				"image": "http://pbs.twimg.com/profile_images/815992706749136896/yPJAcAb6.jpg",
 				"twitter_name": "thismorning",
-				"name": "This Morning",
-				"retweet_count": 560,
-				"image": "http://pbs.twimg.com/profile_images/815992706749136896/yPJAcAb6.jpg"
-			}, {}, {
-				"word": "FOOLISH",
-				"twitter_name": " ",
-				"name": "a",
-				"retweet_count": 1160,
-				"image": "b"
+				"word": "STUPID",
+				"name": "This Morning"
 			}, {
-				"word": "SELFISH",
-				"twitter_name": "RealDonalDrumpf",
-				"name": "Donald J. Drumpf",
-				"retweet_count": 161,
-				"image": "http://pbs.twimg.com/profile_images/510452555030077440/Cogylk6_.jpeg"
+				"retweet_count": 12140,
+				"image": "http://pbs.twimg.com/profile_images/815992706749136896/yPJAcAb6.jpg",
+				"twitter_name": "thismorning",
+				"word": "CYNICAL",
+				"name": "This Morning"
 			}, {
-				"word": "SILLY",
-				"twitter_name": "miyonsea",
-				"name": "Miyonse",
-				"retweet_count": 760,
-				"image": "http://pbs.twimg.com/profile_images/777525841899184130/AiFuvQWH.jpg"
-			}, {
-				"word": "JERK",
-				"twitter_name": "ConnorFranta",
-				"name": "con",
-				"retweet_count": 81,
-				"image": "http://pbs.twimg.com/profile_images/821434780315025408/5Tusmyz7.jpg"
-			}, {}, {
-				"word": "LAZY",
-				"twitter_name": "IndiaToday",
-				"name": "India Today",
-				"retweet_count": 611,
-				"image": "http://pbs.twimg.com/profile_images/787569535880531968/3FtQQHyA.jpg"
-			}, {
-				"word": "JEALOUS",
-				"twitter_name": "ElaheIzadi",
-				"name": "Elahe Izadi",
-				"retweet_count": 3051,
-				"image": "http://pbs.twimg.com/profile_images/722510216970027008/jDOduhL2.jpg"
-			}, {
-				"word": "GREEDY",
-				"twitter_name": "ElaheIzadi",
-				"name": "Elahe Izadi",
-				"retweet_count": 61,
-				"image": "http://pbs.twimg.com/profile_images/722510216970027008/jDOduhL2.jpg"
-			}
-		],
-		"crazy-ill": [{
-				"word": "MOTHERFUCKER",
-				"twitter_name": "paulkrugman",
-				"name": "Paul Krugman",
-				"retweet_count": 291,
-				"image": "http://pbs.twimg.com/profile_images/2044852218/NYT_Twitter_Krugman.png"
-			}, {
-				"word": "FUCK",
+				"retweet_count": 1122,
+				"image": "http://pbs.twimg.com/profile_images/3512965614/f07ff67cee5d5b87a5303670ba0bba3a.jpeg",
 				"twitter_name": "joemckendrick",
-				"name": "Joe McKendrick",
-				"retweet_count": 780,
-				"image": "http://pbs.twimg.com/profile_images/3512965614/f07ff67cee5d5b87a5303670ba0bba3a.jpeg"
+				"word": "FOOLISH",
+				"name": "Joe McKendrick"
 			}, {
-				"word": "FUCKING",
-				"twitter_name": "HeforShe",
-				"name": "HeForShe",
-				"retweet_count": 246858,
-				"image": "http://pbs.twimg.com/profile_images/687660394467360768/iSDyV0rm.png"
-			}, {}, {
-				"word": "PERVERT",
-				"twitter_name": "StephanyRoxanna",
-				"name": "s",
-				"retweet_count": 50615,
-				"image": "http://pbs.twimg.com/profile_images/824829449304580098/y0WHKCO5.jpg"
+				"retweet_count": 5077,
+				"image": "http://pbs.twimg.com/profile_images/722510216970027008/jDOduhL2.jpg",
+				"twitter_name": "ElaheIzadi",
+				"word": "SELFISH",
+				"name": "Elahe Izadi"
 			}, {
-				"word": "MANIC",
-				"twitter_name": "RT_Erdogan",
-				"name": "Recep Tayyip Erdo\u011fan",
-				"retweet_count": 24,
-				"image": "http://pbs.twimg.com/profile_images/660430083753136128/dzWitvi2.jpg"
+				"retweet_count": 119,
+				"image": "http://pbs.twimg.com/profile_images/815992706749136896/yPJAcAb6.jpg",
+				"twitter_name": "thismorning",
+				"word": "SILLY",
+				"name": "This Morning"
 			}, {
-				"word": "EGO",
+				"retweet_count": 2673,
+				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
 				"twitter_name": "realDonaldTrump",
-				"name": "Donald J. Trump",
-				"retweet_count": 67,
-				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg"
+				"word": "JERK",
+				"name": "Donald J. Trump"
 			}, {
-				"word": "COMPULSIVE",
-				"twitter_name": "realDonaldTrump",
-				"name": "Donald J. Trump",
-				"retweet_count": 7826,
-				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg"
+				"retweet_count": 125,
+				"image": "http://pbs.twimg.com/profile_images/815992706749136896/yPJAcAb6.jpg",
+				"twitter_name": "thismorning",
+				"word": "BULLSHIT",
+				"name": "This Morning"
 			}, {
-				"word": "IDIOT",
-				"twitter_name": "realDonaldTrump",
-				"name": "Donald J. Trump",
-				"retweet_count": 106,
-				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg"
+				"retweet_count": 575,
+				"image": "http://pbs.twimg.com/profile_images/777685353775988736/7L9CBucZ.jpg",
+				"twitter_name": "DeathofVengence",
+				"word": "LAZY",
+				"name": "Death (Demon )"
 			}, {
-				"word": "MANIAC",
-				"twitter_name": "realDonaldTrump",
-				"name": "Donald J. Trump",
-				"retweet_count": 6212,
-				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg"
+				"retweet_count": 362,
+				"image": "http://pbs.twimg.com/profile_images/808763328923369475/3AB8ZncV.jpg",
+				"twitter_name": "cthagod",
+				"word": "JEALOUS",
+				"name": "Charlamagne Tha God"
+			}, {
+				"retweet_count": 87,
+				"image": "http://pbs.twimg.com/profile_images/722510216970027008/jDOduhL2.jpg",
+				"twitter_name": "ElaheIzadi",
+				"word": "GREEDY",
+				"name": "Elahe Izadi"
 			}
 		],
 		"gay-sexuality": [{
 				"word": "FAG",
-				"twitter_name": "SethMacFarlane",
-				"name": "Seth MacFarlane",
-				"retweet_count": 22846,
-				"image": "http://pbs.twimg.com/profile_images/477598819715395585/g0lGqC_J.jpeg"
+				"image": "http://pbs.twimg.com/profile_images/805553017038786561/V8D4mlZx.jpg",
+				"retweet_count": 1764,
+				"name": "George E Z R A",
+				"twitter_name": "george_ezra"
 			}, {
 				"word": "FAGGOT",
-				"twitter_name": " ",
-				"name": "a",
-				"retweet_count": 6973,
-				"image": "b"
+				"image": "http://pbs.twimg.com/profile_images/808763328923369475/3AB8ZncV.jpg",
+				"retweet_count": 3568,
+				"name": "Charlamagne Tha God",
+				"twitter_name": "cthagod"
 			}, {
 				"word": "COCKSUCKER",
-				"twitter_name": "4everBrandy",
+				"image": "http://pbs.twimg.com/profile_images/749269111927083008/XYus5lFW.jpg",
+				"retweet_count": 90,
 				"name": "Brandy",
-				"retweet_count": 66,
-				"image": "http://pbs.twimg.com/profile_images/749269111927083008/XYus5lFW.jpg"
+				"twitter_name": "4everBrandy"
 			}, {
 				"word": "COCK SUCKER",
-				"twitter_name": "realDonaldTrump",
+				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
+				"retweet_count": 93,
 				"name": "Donald J. Trump",
-				"retweet_count": 94,
-				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg"
+				"twitter_name": "realDonaldTrump"
 			}, {
 				"word": "HOMO",
-				"twitter_name": "danisnotonfire",
-				"name": "Dan Howell",
-				"retweet_count": 482211,
-				"image": "http://pbs.twimg.com/profile_images/815163636683571200/I8EMyIyI.jpg"
+				"image": "http://pbs.twimg.com/profile_images/1705098502/1325a.jpg",
+				"retweet_count": 12516,
+				"name": "WWE R-Truth",
+				"twitter_name": "RonKillings"
 			}, {
 				"word": "BLOW",
-				"twitter_name": "creepingsharia",
-				"name": "Creeping Sharia",
-				"retweet_count": 2957,
-				"image": "http://pbs.twimg.com/profile_images/421115874/overlay-1.jpg"
+				"image": "http://pbs.twimg.com/profile_images/566425297940013057/qIjO1J_F.jpeg",
+				"retweet_count": 662,
+				"name": "Tan Sri Francis Yeoh",
+				"twitter_name": "FrancisYeoh333"
 			}, {
 				"word": "FUCKING",
-				"twitter_name": "HeforShe",
-				"name": "HeForShe",
-				"retweet_count": 177161,
-				"image": "http://pbs.twimg.com/profile_images/687660394467360768/iSDyV0rm.png"
+				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
+				"retweet_count": 5231,
+				"name": "Donald J. Trump",
+				"twitter_name": "realDonaldTrump"
 			}, {
 				"word": "FUCK",
-				"twitter_name": "joemckendrick",
-				"name": "Joe McKendrick",
-				"retweet_count": 781,
-				"image": "http://pbs.twimg.com/profile_images/3512965614/f07ff67cee5d5b87a5303670ba0bba3a.jpeg"
+				"image": "http://pbs.twimg.com/profile_images/798962974610161665/PXsPj5tD.jpg",
+				"retweet_count": 10124,
+				"name": "Kelly!",
+				"twitter_name": "KellyOsbourne"
 			}, {
 				"word": "MOTHERFUCKER",
-				"twitter_name": "paulkrugman",
-				"name": "Paul Krugman",
-				"retweet_count": 291,
-				"image": "http://pbs.twimg.com/profile_images/2044852218/NYT_Twitter_Krugman.png"
+				"image": "http://pbs.twimg.com/profile_images/378800000412973037/db19e55cf9729a355b8ded88430068fc.jpeg",
+				"retweet_count": 152,
+				"name": "E.O.",
+				"twitter_name": "iamoppose"
 			}, {
 				"word": "BITCH",
-				"twitter_name": "OpTic_DKarma",
-				"name": "Damon B",
-				"retweet_count": 4782,
-				"image": "http://pbs.twimg.com/profile_images/730900434018177024/HEa4uW4w.jpg"
+				"image": "http://pbs.twimg.com/profile_images/804188832635781120/HqxA6Tj4.jpg",
+				"retweet_count": 9596,
+				"name": "Turnabout Media",
+				"twitter_name": "turnaboutmedia"
 			}
 		],
-		"misogynist": [{
-				"word": "CONSERVATIVE",
-				"twitter_name": "ThatKevinSmith",
-				"name": "KevinSmith",
-				"retweet_count": 260,
-				"image": "http://pbs.twimg.com/profile_images/107763943/twitter.jpg"
+		"default": [{
+				"word": "STUPID",
+				"image": "http://pbs.twimg.com/profile_images/815992706749136896/yPJAcAb6.jpg",
+				"retweet_count": 27583,
+				"name": "This Morning",
+				"twitter_name": "thismorning"
+			}, {
+				"word": "GREEDY",
+				"image": "http://pbs.twimg.com/profile_images/722510216970027008/jDOduhL2.jpg",
+				"retweet_count": 87,
+				"name": "Elahe Izadi",
+				"twitter_name": "ElaheIzadi"
 			}, {
 				"word": "CUNT",
-				"twitter_name": "allliSONshinee",
-				"name": "Allison Patrico",
-				"retweet_count": 4899,
-				"image": "http://pbs.twimg.com/profile_images/821094239165681665/Kk-m0RBN.jpg"
+				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
+				"retweet_count": 237,
+				"name": "Donald J. Trump",
+				"twitter_name": "realDonaldTrump"
 			}, {
-				"word": "BLOW",
-				"twitter_name": "creepingsharia",
-				"name": "Creeping Sharia",
-				"retweet_count": 2957,
-				"image": "http://pbs.twimg.com/profile_images/421115874/overlay-1.jpg"
-			}, {
-				"word": "BITCH",
-				"twitter_name": "OpTic_DKarma",
-				"name": "Damon B",
-				"retweet_count": 4779,
-				"image": "http://pbs.twimg.com/profile_images/730900434018177024/HEa4uW4w.jpg"
+				"word": "FAT",
+				"image": "http://pbs.twimg.com/profile_images/823264065313263617/ZKJj5_wJ.jpg",
+				"retweet_count": 2314,
+				"name": "#Trumpm\u25b2g\u00ae",
+				"twitter_name": "RAPMAGROZAY"
 			}, {
 				"word": "WHORE",
-				"twitter_name": "ResourcefulMom",
-				"name": "Amy Lupold Bair",
-				"retweet_count": 1725,
-				"image": "http://pbs.twimg.com/profile_images/802672791040434177/bC2t-rP2.jpg"
-			}, {
-				"word": "PUSSY",
-				"twitter_name": "realDonaldTrump",
-				"name": "Donald J. Trump",
-				"retweet_count": 4068,
-				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg"
-			}, {
-				"word": "PUTA",
-				"twitter_name": "jesseyjoy",
-				"name": "Jesse & Joy Oficial",
-				"retweet_count": 13,
-				"image": "http://pbs.twimg.com/profile_images/664143029079412736/zRPFSWZW.jpg"
-			}, {
-				"word": "TIT",
-				"twitter_name": "albertocontador",
-				"name": "Alberto Contador",
-				"retweet_count": 105,
-				"image": "http://pbs.twimg.com/profile_images/815689396263514112/QUkn_PzY.jpg"
+				"image": "http://pbs.twimg.com/profile_images/687660394467360768/iSDyV0rm.png",
+				"retweet_count": 565,
+				"name": "HeForShe",
+				"twitter_name": "HeforShe"
 			}, {
 				"word": "FUCK",
-				"twitter_name": "joemckendrick",
-				"name": "Joe McKendrick",
-				"retweet_count": 781,
-				"image": "http://pbs.twimg.com/profile_images/3512965614/f07ff67cee5d5b87a5303670ba0bba3a.jpeg"
-			}, {
-				"word": "MOTHERFUCKER",
-				"twitter_name": "paulkrugman",
-				"name": "Paul Krugman",
-				"retweet_count": 291,
-				"image": "http://pbs.twimg.com/profile_images/2044852218/NYT_Twitter_Krugman.png"
-			}
-		],
-		"body-parts": [{
 				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
-				"twitter_name": "realDonaldTrump",
-				"word": "PUSSY",
-				"retweet_count": 3981,
-				"name": "Donald J. Trump"
+				"retweet_count": 10200,
+				"name": "Donald J. Trump",
+				"twitter_name": "realDonaldTrump"
 			}, {
+				"word": "FASCIST",
 				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
-				"twitter_name": "realDonaldTrump",
-				"word": "COCK",
-				"retweet_count": 892,
-				"name": "Donald J. Trump"
+				"retweet_count": 1897,
+				"name": "Donald J. Trump",
+				"twitter_name": "realDonaldTrump"
 			}, {
+				"word": "MANIAC",
 				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
-				"twitter_name": "realDonaldTrump",
-				"word": "DICK",
-				"retweet_count": 24623,
-				"name": "Donald J. Trump"
+				"retweet_count": 731,
+				"name": "Donald J. Trump",
+				"twitter_name": "realDonaldTrump"
 			}, {
-				"image": "http://pbs.twimg.com/profile_images/569948019890475008/4wCAZWMq.png",
-				"twitter_name": "fox12oregon",
-				"word": "SHIT",
-				"retweet_count": 146,
-				"name": "FOX 12 Oregon KPTV"
+				"word": "MISOGYNIST",
+				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
+				"retweet_count": 422,
+				"name": "Donald J. Trump",
+				"twitter_name": "realDonaldTrump"
 			}, {
-				"image": "http://pbs.twimg.com/profile_images/817267986717282304/mNBZDupr.jpg",
-				"twitter_name": "Logic301",
-				"word": "ASS",
-				"retweet_count": 172,
-				"name": "Bobby Tarantino \u30a2\u30ad\u30e9"
-			}, {
-				"image": "http://pbs.twimg.com/profile_images/821094239165681665/Kk-m0RBN.jpg",
-				"twitter_name": "allliSONshinee",
-				"word": "CUNT",
-				"retweet_count": 4965,
-				"name": "Allison Patrico"
-			}, {
-				"image": "http://pbs.twimg.com/profile_images/653586442485149696/Hni_pzkX.jpg",
-				"twitter_name": "JanetJealousy",
-				"word": "UGLY",
-				"retweet_count": 335,
-				"name": "Janet Devlin"
-			}, {
-				"image": "http://pbs.twimg.com/profile_images/788845274869399552/I0pyqhWn.jpg",
-				"twitter_name": "FortuneMagazine",
-				"word": "BUTT",
-				"retweet_count": 221,
-				"name": "Fortune"
-			}, {
-				"image": "http://pbs.twimg.com/profile_images/722510216970027008/jDOduhL2.jpg",
-				"twitter_name": "ElaheIzadi",
-				"word": "ASSHOLE",
-				"retweet_count": 997,
-				"name": "Elahe Izadi"
-			}, {
-				"image": "http://pbs.twimg.com/profile_images/814562839818104832/aygYCTr7.jpg",
-				"twitter_name": "deathwishinc",
-				"word": "FAT",
-				"retweet_count": 302,
-				"name": "Deathwish"
+				"word": "RACIST",
+				"image": "http://pbs.twimg.com/profile_images/815992706749136896/yPJAcAb6.jpg",
+				"retweet_count": 23437,
+				"name": "This Morning",
+				"twitter_name": "thismorning"
 			}
 		],
 		"belief-agenda": [{
 				"word": "MOTHERFUCKER",
-				"twitter_name": "paulkrugman",
-				"name": "Paul Krugman",
-				"retweet_count": 285,
-				"image": "http://pbs.twimg.com/profile_images/2044852218/NYT_Twitter_Krugman.png"
+				"image": "http://pbs.twimg.com/profile_images/378800000412973037/db19e55cf9729a355b8ded88430068fc.jpeg",
+				"retweet_count": 152,
+				"name": "E.O.",
+				"twitter_name": "iamoppose"
 			}, {
 				"word": "FUCK",
-				"twitter_name": "joemckendrick",
-				"name": "Joe McKendrick",
-				"retweet_count": 781,
-				"image": "http://pbs.twimg.com/profile_images/3512965614/f07ff67cee5d5b87a5303670ba0bba3a.jpeg"
+				"image": "http://pbs.twimg.com/profile_images/815992706749136896/yPJAcAb6.jpg",
+				"retweet_count": 8627,
+				"name": "This Morning",
+				"twitter_name": "thismorning"
 			}, {
 				"word": "SADIST",
-				"twitter_name": "ElaheIzadi",
-				"name": "Elahe Izadi",
-				"retweet_count": 62,
-				"image": "http://pbs.twimg.com/profile_images/722510216970027008/jDOduhL2.jpg"
+				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
+				"retweet_count": 122,
+				"name": "Donald J. Trump",
+				"twitter_name": "realDonaldTrump"
 			}, {
 				"word": "MATERIALISTIC",
-				"twitter_name": "CarmellaWWE",
+				"image": "http://pbs.twimg.com/profile_images/822465610764451840/hnDrSiFF.jpg",
+				"retweet_count": 207,
 				"name": "Carmella",
-				"retweet_count": 204,
-				"image": "http://pbs.twimg.com/profile_images/822465610764451840/hnDrSiFF.jpg"
+				"twitter_name": "CarmellaWWE"
 			}, {
-				"word": "MACHIAVELLIAN",
-				"twitter_name": "realDonaldTrump",
-				"name": "Donald J. Trump",
-				"retweet_count": 24,
-				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg"
+				"word": "DUMB",
+				"image": "http://pbs.twimg.com/profile_images/663898965784395776/rEWW6euI.png",
+				"retweet_count": 19530,
+				"name": "Twitter Government",
+				"twitter_name": "gov"
 			}, {
 				"word": "CHAUVINIST",
-				"twitter_name": "realDonaldTrump",
-				"name": "Donald J. Trump",
+				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
 				"retweet_count": 448,
-				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg"
+				"name": "Donald J. Trump",
+				"twitter_name": "realDonaldTrump"
 			}, {
 				"word": "MISOGYNIST",
-				"twitter_name": "realDonaldTrump",
+				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
+				"retweet_count": 403,
 				"name": "Donald J. Trump",
-				"retweet_count": 458,
-				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg"
+				"twitter_name": "realDonaldTrump"
 			}, {
 				"word": "LIAR",
-				"twitter_name": "DJGUVDNB",
-				"name": "DJ GUV",
-				"retweet_count": 1619,
-				"image": "http://pbs.twimg.com/profile_images/805941644738625536/btbfyJH3.jpg"
+				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
+				"retweet_count": 5526,
+				"name": "Donald J. Trump",
+				"twitter_name": "realDonaldTrump"
 			}, {
 				"word": "FASCIST",
-				"twitter_name": "realDonaldTrump",
+				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
+				"retweet_count": 2310,
 				"name": "Donald J. Trump",
-				"retweet_count": 2736,
-				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg"
+				"twitter_name": "realDonaldTrump"
 			}, {
 				"word": "RACIST",
-				"twitter_name": "RealBenCarson",
-				"name": "Dr. Ben Carson",
-				"retweet_count": 65331,
-				"image": "http://pbs.twimg.com/profile_images/748168158914060288/ppXi7Xt-.jpg"
+				"image": "http://pbs.twimg.com/profile_images/815992706749136896/yPJAcAb6.jpg",
+				"retweet_count": 27058,
+				"name": "This Morning",
+				"twitter_name": "thismorning"
+			}
+		],
+		"misogynist": [{
+				"word": "CONSERVATIVE",
+				"image": "http://pbs.twimg.com/profile_images/2821613356/a15ac328aca48742f6fea77546671b70.jpeg",
+				"retweet_count": 674,
+				"name": "Vladimir Putin",
+				"twitter_name": "PutinRF_Eng"
+			}, {
+				"word": "CUNT",
+				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
+				"retweet_count": 235,
+				"name": "Donald J. Trump",
+				"twitter_name": "realDonaldTrump"
+			}, {
+				"word": "BLOW",
+				"image": "http://pbs.twimg.com/profile_images/566425297940013057/qIjO1J_F.jpeg",
+				"retweet_count": 388,
+				"name": "Tan Sri Francis Yeoh",
+				"twitter_name": "FrancisYeoh333"
+			}, {
+				"word": "BITCH",
+				"image": "http://pbs.twimg.com/profile_images/804188832635781120/HqxA6Tj4.jpg",
+				"retweet_count": 9670,
+				"name": "Turnabout Media",
+				"twitter_name": "turnaboutmedia"
+			}, {
+				"word": "WHORE",
+				"image": "http://pbs.twimg.com/profile_images/422957799/cm3.jpg",
+				"retweet_count": 565,
+				"name": "Corinna Milborn",
+				"twitter_name": "corinnamilborn"
+			}, {
+				"word": "PUSSY",
+				"image": "http://pbs.twimg.com/profile_images/737987820313292800/LTSy2bIz.jpg",
+				"retweet_count": 612,
+				"name": "PlayStation Europe",
+				"twitter_name": "PlayStationEU"
+			}, {
+				"word": "PUTA",
+				"image": "http://pbs.twimg.com/profile_images/664143029079412736/zRPFSWZW.jpg",
+				"retweet_count": 7,
+				"name": "Jesse & Joy Oficial",
+				"twitter_name": "jesseyjoy"
+			}, {
+				"word": "TIT",
+				"image": "http://pbs.twimg.com/profile_images/815689396263514112/QUkn_PzY.jpg",
+				"retweet_count": 121,
+				"name": "Alberto Contador",
+				"twitter_name": "albertocontador"
+			}, {
+				"word": "FUCK",
+				"image": "http://pbs.twimg.com/profile_images/798962974610161665/PXsPj5tD.jpg",
+				"retweet_count": 10200,
+				"name": "Kelly!",
+				"twitter_name": "KellyOsbourne"
+			}, {
+				"word": "MOTHERFUCKER",
+				"image": "http://pbs.twimg.com/profile_images/378800000412973037/db19e55cf9729a355b8ded88430068fc.jpeg",
+				"retweet_count": 153,
+				"name": "E.O.",
+				"twitter_name": "iamoppose"
+			}
+		],
+		"crazy-ill": [{
+				"word": "MOTHERFUCKER",
+				"image": "http://pbs.twimg.com/profile_images/378800000412973037/db19e55cf9729a355b8ded88430068fc.jpeg",
+				"retweet_count": 154,
+				"name": "E.O.",
+				"twitter_name": "iamoppose"
+			}, {
+				"word": "FUCK",
+				"image": "http://pbs.twimg.com/profile_images/815992706749136896/yPJAcAb6.jpg",
+				"retweet_count": 8643,
+				"name": "This Morning",
+				"twitter_name": "thismorning"
+			}, {
+				"word": "FUCKING",
+				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
+				"retweet_count": 5214,
+				"name": "Donald J. Trump",
+				"twitter_name": "realDonaldTrump"
+			}, {
+				"word": "FOOL",
+				"image": "http://pbs.twimg.com/profile_images/769775481692364801/j5nXOVaH.jpg",
+				"retweet_count": 11435,
+				"name": "Kevin Hart",
+				"twitter_name": "KevinHart4real"
+			}, {
+				"word": "PERVERT",
+				"image": "http://pbs.twimg.com/profile_images/2975612306/797c14161e26e9b4d8e26e78a72f6ce2.jpeg",
+				"retweet_count": 51340,
+				"name": "Apolo Anton Ohno",
+				"twitter_name": "ApoloOhno"
+			}, {
+				"word": "MANIC",
+				"image": "http://pbs.twimg.com/profile_images/660430083753136128/dzWitvi2.jpg",
+				"retweet_count": 13,
+				"name": "Recep Tayyip Erdo\u011fan",
+				"twitter_name": "RT_Erdogan"
+			}, {
+				"word": "EGO",
+				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
+				"retweet_count": 67,
+				"name": "Donald J. Trump",
+				"twitter_name": "realDonaldTrump"
+			}, {
+				"word": "COMPULSIVE",
+				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
+				"retweet_count": 1746,
+				"name": "Donald J. Trump",
+				"twitter_name": "realDonaldTrump"
+			}, {
+				"word": "IDIOT",
+				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
+				"retweet_count": 27,
+				"name": "Donald J. Trump",
+				"twitter_name": "realDonaldTrump"
+			}, {
+				"word": "MANIAC",
+				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
+				"retweet_count": 762,
+				"name": "Donald J. Trump",
+				"twitter_name": "realDonaldTrump"
+			}
+		],
+		"body-parts": [{
+				"word": "PUSSY",
+				"image": "http://pbs.twimg.com/profile_images/790626525506785280/pYK-WW_c.jpg",
+				"retweet_count": 3065,
+				"name": "How To Get Away ABC",
+				"twitter_name": "HowToGetAwayABC"
+			}, {
+				"word": "COCK",
+				"image": "http://pbs.twimg.com/profile_images/692377263585779713/fTGOkTkE.png",
+				"retweet_count": 121,
+				"name": "Erica & Tina",
+				"twitter_name": "therealmarymary"
+			}, {
+				"word": "DICK",
+				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
+				"retweet_count": 248,
+				"name": "Donald J. Trump",
+				"twitter_name": "realDonaldTrump"
+			}, {
+				"word": "SHIT",
+				"image": "http://pbs.twimg.com/profile_images/593555911601324034/s4y-67Ja.jpg",
+				"retweet_count": 294,
+				"name": "Stacy Keibler",
+				"twitter_name": "StacyKeibler"
+			}, {
+				"word": "ASS",
+				"image": "http://pbs.twimg.com/profile_images/817267986717282304/mNBZDupr.jpg",
+				"retweet_count": 127,
+				"name": "Bobby Tarantino \u30a2\u30ad\u30e9",
+				"twitter_name": "Logic301"
+			}, {
+				"word": "CUNT",
+				"image": "http://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg",
+				"retweet_count": 232,
+				"name": "Donald J. Trump",
+				"twitter_name": "realDonaldTrump"
+			}, {
+				"word": "UGLY",
+				"image": "http://pbs.twimg.com/profile_images/653586442485149696/Hni_pzkX.jpg",
+				"retweet_count": 176,
+				"name": "Janet Devlin",
+				"twitter_name": "JanetJealousy"
+			}, {
+				"word": "BUTT",
+				"image": "http://pbs.twimg.com/profile_images/662991576977776641/CVVRuxTR.jpg",
+				"retweet_count": 54,
+				"name": "Yoweri K Museveni",
+				"twitter_name": "KagutaMuseveni"
+			}, {
+				"word": "ASSHOLE",
+				"image": "http://pbs.twimg.com/profile_images/722510216970027008/jDOduhL2.jpg",
+				"retweet_count": 394,
+				"name": "Elahe Izadi",
+				"twitter_name": "ElaheIzadi"
+			}, {
+				"word": "FAT",
+				"image": "http://pbs.twimg.com/profile_images/823264065313263617/ZKJj5_wJ.jpg",
+				"retweet_count": 2125,
+				"name": "#Trumpm\u25b2g\u00ae",
+				"twitter_name": "RAPMAGROZAY"
 			}
 		]
 	},
-	"categories": {
-		"default": ["stupid", "greedy", "cunt", "fat", "whore", "fuck", "fascist", "maniac", "misogynist", "racist"],
-		"characteristics": ["stupid", "miserly", "foolish", "selfish", "silly", "jerk", "egoist", "lazy", "jealous", "greedy"],
-		"crazy-ill": ["motherfucker", "fuck", "fucking", "obsessive", "pervert", "manic", "ego", "compulsive", "idiot", "maniac"],
-		"gay-sexuality": ["fag", "faggot", "cocksucker", "cock sucker", "homo", "blow", "fucking", "fuck", "motherfucker", "bitch"],
-		"misogynist": ["conservative", "cunt", "blow", "bitch", "whore", "pussy", "puta", "tit", "fuck", "motherfucker"],
-		"body-parts": ["pussy", "cock", "dick", "shit", "ass", "cunt", "ugly", "butt", "asshole", "fat"],
-		"belief-agenda": ["motherfucker", "fuck", "sadist", "materialistic", "machiavellian", "chauvinist", "misogynist", "liar", "fascist", "racist"]
-	}
+	"categories_only": ["misogynist", "belief-agenda", "crazy-ill", "body-parts", "characteristics", "default", "gay-sexuality"]
 }
