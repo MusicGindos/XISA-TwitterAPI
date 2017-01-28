@@ -128,7 +128,8 @@ def get_user(screen_name):
                     words_with_texts.sort(key=lambda x: x['count'], reverse=True)
                     result["images"] = unique_images(images)
                     for i in range(5):
-                        words_with_texts[i]['texts'] = words_with_texts[i]['texts'][:10]
+                        if len(words_with_texts[i]['texts']) > 9:
+                            words_with_texts[i]['texts'] = words_with_texts[i]['texts'][:10]
                     result["words_with_tweets"] = words_with_texts[:5]
             break
     return result
