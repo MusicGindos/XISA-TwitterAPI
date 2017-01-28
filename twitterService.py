@@ -34,16 +34,19 @@ class S(BaseHTTPRequestHandler):
                 else:
                     data = {'error': "wrong category"}
             elif self.path.startswith("/celeb"):
-                name = ''
+                last_name = ''
+                twitter_name = ''
                 category = ''
                 try:
-                    if self.path.split("/")[2] is not None and self.path.split("/")[3] is not None:
-                        name = self.path.split("/")[2]
-                        category = self.path.split("/")[3]
+                    if self.path.split("/")[2] is not None and self.path.split("/")[3] is not None and self.path.split("/")[4] is not None:
+                        last_name = self.path.split("/")[2]
+                        twitter_name = self.path.split("/")[3]
+                        category = self.path.split("/")[4]
                 except IndexError:
-                    name = self.path.split("/")[2]
+                    last_name = self.path.split("/")[2]
+                    twitter_name = self.path.split("/")[3]
                     category = "default"
-                data = celeb.celeb_tweets(name, category)
+                data = celeb.celeb_tweets(last_name, category, twitter_name)
                 if not data:
                     data = {'error': 'wrong category'}
             elif self.path == "/getUsers":

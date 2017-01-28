@@ -12,6 +12,11 @@ def init():
     numberOfThreadFinished = 0
 
 
+# def delete_none_from_list(list):
+#     for l in list:
+#         if l is None:
+#             delete l
+
 def get_tweets(name, word, result, index):
     texts = {}
     phrase = '/"' + name + ' is a ' + word + '/"'
@@ -51,8 +56,13 @@ def celeb_tweets(name, category, twitter_name="realDonaldTrump"):
             if numberOfThreadFinished == 10:
                 if results:
                     if any(results):
+                        #results = filter(None, results)
+                        results = [x for x in results if x != None]
                         results.sort(key=lambda x: x['bad_words_count'], reverse=True)
-                        results = results[1:6]
+                        try:
+                            results = results[1:6]
+                        except:
+                            results = results[:len(results)]
                         most_used_word = results[0]["word"].upper()
                     else:
                         results = []
