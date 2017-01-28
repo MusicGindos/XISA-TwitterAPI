@@ -28,6 +28,18 @@ def init():
     images = []
 
 
+def unique_images(image_array):
+    img_arr = []
+    index = 0
+    for image in image_array:
+        if image not in img_arr and index is not 5:
+            img_arr.append(image)
+            index += 1
+        elif index == 5:
+            break
+    return img_arr
+
+
 def count_word(word, string):
     count = 0
     sentence = string.lower()
@@ -57,7 +69,7 @@ def get_tweets_from_user(user_name, page_number):
                         for res in words_with_texts:
                             if res['word'] == word:
                                 res["count"] += count
-                                temp = {'created_time': tweet['created_at'], 'tweet': tweet['text'], 'tweet_id': tweet['id'], 'twitter_name': tweet['user']["screen_name"], 'name': tweet['user']['name']}
+                                temp = {'created_time': tweet['created_at'], 'tweet': tweet['text'], 'tweet_id': tweet['id_str'], 'twitter_name': tweet['user']["screen_name"], 'name': tweet['user']['name']}
                                 res["texts"].append(temp)
                                 number = 1
                                 break
@@ -65,7 +77,7 @@ def get_tweets_from_user(user_name, page_number):
                         word_res["word"] = word
                         word_res["count"] = count
                         word_res["texts"] = []
-                        temp = {'created_time': tweet['created_at'], 'tweet': tweet['text'], 'tweet_id': tweet['id'], 'twitter_name': tweet['user']["screen_name"], 'name': tweet['user']["name"]}
+                        temp = {'created_time': tweet['created_at'], 'tweet': tweet['text'], 'tweet_id': tweet['id_str'], 'twitter_name': tweet['user']["screen_name"], 'name': tweet['user']["name"]}
                         word_res["texts"].append(temp)
                         words_with_texts.append(word_res)
                     global numberOfImages
@@ -114,7 +126,9 @@ def get_user(screen_name):
             if result:
                 if result['user_details']['total_bad_words'] != 0:
                     words_with_texts.sort(key=lambda x: x['count'], reverse=True)
-                    result["images"] = images[:5]  # list(set(images)) remove duplicates
+                    result["images"] = unique_images(images)
+                    for i in range(5):
+                        words_with_texts[i]['texts'] = words_with_texts[i]['texts'][:10]
                     result["words_with_tweets"] = words_with_texts[:5]
             break
     return result
