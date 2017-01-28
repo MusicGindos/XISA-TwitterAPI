@@ -28,6 +28,7 @@ def users(word, result, thread_number):
                 result.append(user)
         global numberOfThreadFinished
         numberOfThreadFinished += 1
+        print('Finished:' + str(numberOfThreadFinished))
         return
     except Exception as e:
         if "Rate limit exceeded" in str(e):
@@ -60,14 +61,15 @@ def merge_sort(users_array):
 
 def get_users():
     bad_words = twitterConfig.bad_words
-    threads = [None] * (len(bad_words)-1)
+    print(len(bad_words))
+    threads = [None] * (len(bad_words))
     results = []
 
     for i in range(len(threads)):
             threads[i] = Thread(target=users, args=(bad_words[i], results, i))
             threads[i].start()
     while True:
-        if numberOfThreadFinished == (len(bad_words)-1):
+        if numberOfThreadFinished == (len(bad_words)-2):
             break
     if rate_limit_flag:
         res = []
