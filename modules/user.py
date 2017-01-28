@@ -127,7 +127,7 @@ def get_user(screen_name):
                 if result['user_details']['total_bad_words'] != 0:
                     words_with_texts.sort(key=lambda x: x['count'], reverse=True)
                     result["images"] = unique_images(images)
-                    for i in range(5):
+                    for i in range(len(words_with_texts)):
                         if len(words_with_texts[i]['texts']) > 9:
                             words_with_texts[i]['texts'] = words_with_texts[i]['texts'][:10]
                     result["words_with_tweets"] = words_with_texts[:5]
