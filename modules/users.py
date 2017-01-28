@@ -60,18 +60,19 @@ def merge_sort(users_array):
 
 
 def get_users():
-    threads = [None] * 152
-    results = []
     bad_words = twitterConfig.bad_words
+    threads = [None] * len(bad_words)
+    results = []
+
     for i in range(len(threads)):
             threads[i] = Thread(target=users, args=(bad_words[i], results, i))
             threads[i].start()
     while True:
-        if numberOfThreadFinished == 152:
+        if numberOfThreadFinished == len(bad_words):
             break
     if rate_limit_flag:
         res = {}
         return res
     else:
         res = merge_sort(results)
-        return res[:10]
+        return res

@@ -51,8 +51,6 @@ def get_celebs(word, result, index):
                     twitter_name = ''
                     image = ''
                     for user in users:
-                        if word is "foolish":
-                            print(user["name"])
                         if user["followers_count"] > followers_count and user["name"]:
                             user_name = user["name"]
                             followers_count = user["followers_count"]
@@ -64,6 +62,8 @@ def get_celebs(word, result, index):
                     temp_user["word"] = word.upper()
                     temp_user["retweet_count"] = retweets
                     break
+        if not temp_user:
+            print(temp_user)
         result[index] = temp_user
         global numberOfThreadFinished
         numberOfThreadFinished += 1
