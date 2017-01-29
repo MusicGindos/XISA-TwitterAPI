@@ -13,7 +13,7 @@ images = []
 bad_words = twitterConfig.bad_words
 
 
-def init():
+def init():  # init for every thread
     global result
     result = {}
     global words_with_texts
@@ -28,7 +28,7 @@ def init():
     images = []
 
 
-def unique_images(image_array):
+def unique_images(image_array):  # take array of objects and make unique images
     img_arr = []
     index = 0
     for image in image_array:
@@ -40,7 +40,7 @@ def unique_images(image_array):
     return img_arr
 
 
-def count_word(word, string):
+def count_word(word, string):  # count the most words in a string
     count = 0
     sentence = string.lower()
     sentence = sentence.split(' ')
@@ -50,7 +50,7 @@ def count_word(word, string):
     return count
 
 
-def get_tweets_from_user(user_name, page_number):
+def get_tweets_from_user(user_name, page_number):  # get screen_name tweets, page_number is the offset of the tweets, offset = 200*page_number
     global user_details
     global result
     number = 0
@@ -81,7 +81,7 @@ def get_tweets_from_user(user_name, page_number):
                         word_res["texts"].append(temp)
                         words_with_texts.append(word_res)
                     global numberOfImages
-                    if numberOfImages < 15:
+                    if numberOfImages < 15:  # get 15 images for most hating users
                         split_tweet = tweet["text"].split(' ')
                         for str_word in split_tweet:
                             if numberOfImages > 15:
@@ -102,7 +102,7 @@ def get_tweets_from_user(user_name, page_number):
                 word_res = {}
                 number = 0
         global numberOfThreadFinished
-        numberOfThreadFinished += 1
+        numberOfThreadFinished += 1  # finished thread +=1 for the while loop
         return
     except IndexError:
         print(page_number)
@@ -110,26 +110,26 @@ def get_tweets_from_user(user_name, page_number):
         return
     except Exception as e:
         print('Exception in user at Thread ' + str(page_number + 1) + ' error message:' + str(e))
-        numberOfThreadFinished += 1
+        numberOfThreadFinished += 1  # in case the user have less than 3200 tweets
         return
 
 
-def get_user(screen_name):
+def get_user(screen_name):  # get all 3200 tweets by screen_name
     init()
     threads = [None] * 16
     for i in range(len(threads)):
         threads[i] = Thread(target=get_tweets_from_user, args=(screen_name, i))
-        threads[i].start()
+        threads[i].start()  # start all threads with multi-threading
 
     while True:
-        if numberOfThreadFinished == 16:
+        if numberOfThreadFinished == 16:  # will finish loop only when all thread finished
             if result:
                 if result['user_details']['total_bad_words'] != 0:
                     words_with_texts.sort(key=lambda x: x['count'], reverse=True)
                     result["images"] = unique_images(images)
                     for i in range(len(words_with_texts)):
                         if len(words_with_texts[i]['texts']) > 9:
-                            words_with_texts[i]['texts'] = words_with_texts[i]['texts'][:10]
-                    result["words_with_tweets"] = words_with_texts[:5]
+                            words_with_texts[i]['texts'] = words_with_texts[i]['texts'][:10]  # leave only 10 texts in each category
+                    result["words_with_tweets"] = words_with_texts[:5]  # get the most 5 top words
             break
     return result

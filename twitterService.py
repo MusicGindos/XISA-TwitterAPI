@@ -9,15 +9,15 @@ from modules import json_reader_writer
 
 
 class S(BaseHTTPRequestHandler):
-    def do_GET(self):
+    def do_GET(self):  # get all the request from server
         try:
             print('got GET request: ' + self.path)
             data = {}
             if self.path.startswith("/getCelebs"):
                 try:
-                    category = self.path.split("/")[2]
+                    category = self.path.split("/")[2]  # try get category as parameter
                 except IndexError:
-                    category = "default"
+                    category = "default"  # in case of no category, choose default
                 if json_reader_writer.is_category(category):
                     print(category)
                     time_difference = json_reader_writer.calculate_differences_between_datetime(json_reader_writer.read_from_times_with_categories("celebs_categories", category))
@@ -42,12 +42,12 @@ class S(BaseHTTPRequestHandler):
                         last_name = self.path.split("/")[2]
                         twitter_name = self.path.split("/")[3]
                         category = self.path.split("/")[4]
-                except IndexError:
+                except IndexError:  # in case of no category
                     last_name = self.path.split("/")[2]
                     twitter_name = self.path.split("/")[3]
                     category = "default"
                 data = celeb.celeb_tweets(last_name, category, twitter_name)
-                if not data:
+                if not data:  # if got no data, return error for client
                     data = {'error': 'wrong category'}
             elif self.path == "/getUsers":
                 time_difference = json_reader_writer.calculate_differences_between_datetime(json_reader_writer.read_from_times_json("users_time"))
@@ -69,13 +69,13 @@ class S(BaseHTTPRequestHandler):
             elif self.path == "/favicon.ico":
                 print("favicon.ico")
             else:
-                data = {'error': 'Wrong path: ' + self.path, "API": "https://github.com/MusicGindos/XISA-TwitterAPI"}
-            self.send_response(200)
+                data = {'error': 'Wrong path: ' + self.path, "API": "https://github.com/MusicGindos/XISA-TwitterAPI"}  # general path for wrong path
+            self.send_response(200)  # send status for client
             self.send_header('Access-Control-Allow-Origin', '*')
             self.send_header('Content-type', 'application/json')
             self.end_headers()
             self.wfile.write(json.dumps(data).encode("utf-8"))
-        except Exception as e:
+        except Exception as e:  # in case of any exception in server, return error for client
             print('Exception in do_get error message:' + str(e))
             data = {'error': 'Error in server'}
             self.send_response(200)
