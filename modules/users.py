@@ -76,4 +76,4 @@ def get_users():
         return res
     else:
         res = merge_sort(results)
-        return res
+        return res[:10]
