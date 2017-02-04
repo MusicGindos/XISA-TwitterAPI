@@ -68,6 +68,8 @@ def celeb_tweets(name, category, twitter_name="realDonaldTrump"):
                     return {}
         res = {'words_with_tweets': results, 'user_details': celeb, 'most_used_word': most_used_word, 'total_bad_tweets': total_bad_tweets}
         init()
+        global total_bad_tweets
+        total_bad_tweets = 0
         return res
     else:
         return []
