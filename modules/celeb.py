@@ -11,6 +11,8 @@ total_bad_tweets = 0
 def init(): # init for each thread
     global numberOfThreadFinished
     numberOfThreadFinished = 0
+    global total_bad_tweets
+    total_bad_tweets = 0
 
 
 def get_tweets(name, word, result, index):  # get name of celeb and word to search nd return tweets about him
@@ -68,8 +70,6 @@ def celeb_tweets(name, category, twitter_name="realDonaldTrump"):
                     return {}
         res = {'words_with_tweets': results, 'user_details': celeb, 'most_used_word': most_used_word, 'total_bad_tweets': total_bad_tweets}
         init()
-        global total_bad_tweets
-        total_bad_tweets = 0
         return res
     else:
         return []
