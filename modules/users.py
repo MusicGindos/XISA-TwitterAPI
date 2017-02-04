@@ -61,7 +61,6 @@ def merge_sort(users_array):  # merge and sort all the users because of multi-th
 
 def get_users():  #
     bad_words = twitterConfig.bad_words  # get 110 words from data
-    print(len(bad_words))
     threads = [None] * (len(bad_words))  # init array of len of bad words
     results = []
 

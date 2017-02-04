@@ -18,12 +18,11 @@ def get_tweets(name, word, result, index):  # get name of celeb and word to sear
     phrase = '/"' + name + ' is a ' + word + '/"'  # the query to search in twitter
     tweets = twitter.search.tweets(q=phrase, count=100)['statuses']  # twitter search
     global total_bad_tweets
-    total_bad_tweets += len(tweets)
-    print(len(tweets))
     texts[word] = {'word': word, 'texts': [], 'bad_words_count': 0}
     texts_array = []
     for tweet in tweets:
         if tweet['text'] not in texts_array:
+            total_bad_tweets += 1
             texts_array.append(tweet['text'])
             obj = {"tweet": tweet['text'], "tweet_id": tweet["id_str"], "created_time": tweet["created_at"], "name": tweet['user']["name"], "twitter_name": tweet['user']["screen_name"]}
             texts[word]['texts'].append(obj)

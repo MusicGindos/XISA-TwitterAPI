@@ -131,5 +131,7 @@ def get_user(screen_name):  # get all 3200 tweets by screen_name
                         if len(words_with_texts[i]['texts']) > 9:
                             words_with_texts[i]['texts'] = words_with_texts[i]['texts'][:10]  # leave only 10 texts in each category
                     result["words_with_tweets"] = words_with_texts[:5]  # get the most 5 top words
+                else:
+                    result["words_with_tweets"] = []
             break
     return result
