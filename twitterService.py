@@ -22,7 +22,7 @@ class S(BaseHTTPRequestHandler):
                     print(category)
                     time_difference = json_reader_writer.calculate_differences_between_datetime(json_reader_writer.read_from_times_with_categories("celebs_categories", category))
                     print("Last updated json was " + str(time_difference/60) + ' hours ago')
-                    if time_difference > 1440:
+                    if time_difference > 10080:
                         json_reader_writer.update_time_by_key("celebs_categories", category)
                         data = celebs.celebs(category)
                         if data:
@@ -51,7 +51,7 @@ class S(BaseHTTPRequestHandler):
                     data = {'error': 'wrong category'}
             elif self.path == "/getUsers":
                 time_difference = json_reader_writer.calculate_differences_between_datetime(json_reader_writer.read_from_times_json("users_time"))
-                if time_difference > 1440:
+                if time_difference > 10080:
                     json_reader_writer.update_time_by_key("users_time")
                     data = users.get_users()
                     if data:
